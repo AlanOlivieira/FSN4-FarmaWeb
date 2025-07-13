@@ -5,7 +5,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('public/images/—Slidesdocs—conceito de saúde e farmácia_acfd6cedcd (1).jpg');
+  background-image: url('public/images/fundo.jpg');
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -235,17 +235,17 @@
 }
 
 .value-card.missao::before {
-  background-image: url('public/images/downloadql.jpeg');
+  background-image: url('public/images/missao.jpg');
   /* Altere para o caminho da sua imagem */
 }
 
 .value-card.visao::before {
-  background-image: url('public/images/downloadkkk (2).jpeg');
+  background-image: url('public/images/missao.jpg');
   /* Altere para o caminho da sua imagem */
 }
 
 .value-card.valores::before {
-  background-image: url('public/images/downloadkjkjkk(2).jpeg');
+  background-image: url('public/images/valores.jpg');
   /* Altere para o caminho da sua imagem */
 }
 

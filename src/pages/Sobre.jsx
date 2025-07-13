@@ -25,7 +25,7 @@ export default function Sobre() {
             <Col md={6} className="mb-4 mb-md-0">
               <div className="image-wrapper">
                 <img
-                  src="public/images/—Pngtree—pharmacy themed white pill bottle_13358042.jpg"
+                  src="public/images/nossaHistoria.jpg"
                   alt="Equipe FarmaWeb atendendo"
                   className="img-fluid rounded-lg shadow"
                 />
@@ -59,17 +59,17 @@ export default function Sobre() {
               {
                 name: 'Dra. Ana Clara Silva',
                 role: 'Farmacêutica Chefe',
-                image: 'https://placehold.co/300x300?text=Ana+Clara'
+                image: 'public/images/person_1.jpg'
               },
               {
                 name: 'Carlos Eduardo Lima',
                 role: 'Gerente de Atendimento ao Cliente',
-                image: 'https://placehold.co/300x300?text=Carlos'
+                image: 'public/images/person_3.jpg'
               },
               {
                 name: 'Fernanda Ribeiro',
                 role: 'Especialista em Marketing Digital',
-                image: 'https://placehold.co/300x300?text=Fernanda'
+                image: 'public/images/person_5.jpg'
               }
             ].map((member, index) => (
               <Col md={4} key={index} className="mb-4">
