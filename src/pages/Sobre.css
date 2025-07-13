@@ -1,0 +1,258 @@
+/* Estilos para o background */
+.fullscreen-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('public/images/—Slidesdocs—conceito de saúde e farmácia_acfd6cedcd (1).jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  filter: brightness(0.7);
+  /* Ajuste de brilho */
+}
+
+/* Overlay mais transparente para mostrar mais o fundo */
+.content-overlay {
+  position: relative;
+  /* background-color: rgba(255, 255, 255, 0.7); Opacidade reduzida */
+  min-height: 100vh;
+
+}
+
+/* Ajustes para melhor visibilidade do fundo */
+.section-content {
+  /* background-color: rgba(255, 255, 255, 0.88); Fundo mais transparente */
+  border: 1px solid rgba(255, 255, 255, 0);
+  /* Borda sutil */
+  backdrop-filter: blur(4px);
+  /* Efeito de desfoque sutil */
+  padding: 2rem;
+  border-radius: 10px;
+  color: #f6f7f8;
+  /* Cor do texto mais clara */
+  font-family: 'Arial', sans-serif;
+  /* Fonte padrão */
+  max-width: 1200px;
+  /* Largura máxima para manter o conteúdo legível */
+  cursor: pointer;
+  /* Indica que o cartão é interativo */
+
+}
+
+/* Melhorando o contraste do texto para manter legibilidade */
+.main-title {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.99);
+  /* Sombra forte */
+  color: white;
+  /* Cor do texto mais clara */
+  font-size: 5rem;
+  /* Tamanho do texto */
+  font-weight: bold;
+  /* Negrito para destaque */
+  margin-top: 10rem;
+  /* Espaçamento acima do título */
+}
+
+.subtitle {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.988);
+  color: white;
+  font-size: 1.5rem;
+  /* Tamanho do subtítulo */
+  font-weight: normal;
+  /* Peso normal para o subtítulo */
+  margin-top: 1rem;
+  /* Espaçamento acima do subtítulo */
+  margin-bottom: 15rem;
+  /* Espaçamento abaixo do subtítulo */
+  text-align: center;
+  /* Centraliza o subtítulo */
+  font-style: italic;
+  /* Estilo itálico para o subtítulo */
+  text-transform: uppercase;
+  /* Transforma o texto em maiúsculas */
+
+}
+
+/* Estilos para o cabeçalho da seção */
+
+.section-header {
+  color: #f6f7f8;
+  font-size: 2.5rem;
+  /* Tamanho do texto do cabeçalho */
+  font-weight: bold;
+  /* Negrito para destaque */
+  margin-bottom: 2rem;
+  /* Espaçamento abaixo do cabeçalho */
+}
+
+/* Ajustes nas cores para melhor contraste */
+.text-content {
+  color: #f6f7f8;
+  font-size: 1.2rem;
+  /* Tamanho do texto */
+  line-height: 1.6;
+  /* Altura da linha para melhor legibilidade */
+  margin-bottom: 2rem;
+  /* Espaçamento abaixo do texto */
+
+}
+
+.value-card {
+  background-color: rgba(255, 255, 255, 0.85);
+
+}
+
+
+.team-card:hover {
+  transform: scale(1.05);
+}
+
+.card-image {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1rem;
+  overflow: hidden;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.value-card {
+  background: #156a9bcc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+  transition: all 0.3s ease;
+}
+
+.value-card:hover {
+  background: rgba(4, 80, 99, 0.507);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .section-content {
+    padding: 1.5rem;
+  }
+
+  .card-image {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.card-body-title {
+
+  font-weight: bold;
+  color: #f5f3f3;
+
+
+}
+
+.section-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.value-card {
+  position: relative;
+  padding: 20px;
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
+  /* Para garantir que o texto seja legível */
+  overflow: hidden;
+  /* Para evitar que o conteúdo saia do cartão */
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: rgba(21, 106, 155, 0.8);
+  /* Cor de fundo com opacidade */
+  backdrop-filter: blur(5px);
+  /* Efeito de desfoque no fundo */
+  margin-bottom: 2rem;
+  /* Espaçamento entre os cartões */
+  text-align: center;
+  /* Centraliza o texto dentro do cartão */
+  font-family: 'Arial', sans-serif;
+  /* Fonte padrão */
+  font-size: 1.2rem;
+  /* Tamanho do texto */
+  line-height: 1.5;
+  /* Altura da linha para melhor legibilidade */
+  align-items: center;
+  position: relative;
+  /* Necessário para o pseudo-elemento ::before */
+  z-index: 0;
+  /* Garante que o cartão fique acima do fundo */
+  max-width: 400px;
+  /* Limita a largura máxima do cartão */
+  margin: 0 auto;
+  /* Centraliza o cartão na tela */
+  border-radius: 10px;
+  /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Sombra para dar profundidade */
+  cursor: pointer;
+  /* Indica que o cartão é interativo */
+
+
+
+}
+
+.value-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  /* Ajuste a opacidade conforme necessário */
+  z-index: 1;
+  /* Coloca o overlay abaixo do conteúdo */
+}
+
+.value-card.missao::before {
+  background-image: url('public/images/downloadql.jpeg');
+  /* Altere para o caminho da sua imagem */
+}
+
+.value-card.visao::before {
+  background-image: url('public/images/downloadkkk (2).jpeg');
+  /* Altere para o caminho da sua imagem */
+}
+
+.value-card.valores::before {
+  background-image: url('public/images/downloadkjkjkk(2).jpeg');
+  /* Altere para o caminho da sua imagem */
+}
+
+.value-card h4,
+.value-card p {
+  position: relative;
+  /* Para garantir que o texto fique acima do overlay */
+  z-index: 2;
+  /* Coloca o conteúdo acima do overlay */
+}
