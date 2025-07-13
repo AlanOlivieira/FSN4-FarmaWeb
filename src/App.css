@@ -40,3 +40,28 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Estilos específicos para a página Sobre */
+.about-image {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.team-card {
+  padding: 20px;
+  transition: transform 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+}
+
+.value-item {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.value-item h3 {
+  margin-top: 0;
+}
