@@ -66,3 +66,27 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+.site-logo {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.site-logo a {
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+
+}
+.site-logo a:focus,
+.site-logo a:active,
+.site-logo a:hover {
+  text-decoration: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
+
+}
