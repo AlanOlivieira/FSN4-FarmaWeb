@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
 import Sobre from './pages/Sobre'; // Adicionei essa importação
+import Carrinho from './pages/Carrinho';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Suplementos from './pages/suplementos';
 import Vitaminas from './pages/vitaminas';
@@ -40,6 +41,7 @@ function App() {
           <Route path="baby" element={<Bebes/>} />
           <Route path="medicamentos" element={<Medicamentos/>} />
         </Route>
+        <Route path="carrinho" element={<Carrinho />} />
       </Route>
       
     </Routes>
