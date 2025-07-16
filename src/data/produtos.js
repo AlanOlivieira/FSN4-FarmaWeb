@@ -1,19 +1,143 @@
-// aqui o link para a importação pessoALL -> import produtos from '../data/produtos'; 
-const produtos = [
-  {
-    id: 1,
-    nome: "Dorflex",
-    preco: 25.00,
-    imagem: "/images/dorflex.png",
-    descricao: "Analgésico e relaxante muscular.",
-  },
-  {
-    id: 2,
-    nome: "Cimegripe",
-    preco: 10.00,
-    imagem: "/images/793225-1200-auto.webp",
-    descricao: "Alívio rápido de sintomas gripais.",
-  }
-];
 
-export default produtos;
+const produtos = {
+    medicamentos: [
+    { id: 1, nome: "Paracetamol 750mg", preco: 7.90, imagem: "https://example.com/img/paracetamol.jpg", descricao: "Analgésico para febre e dores.", classificacao: "medicamentos", destaque: true },
+    { id: 2, nome: "Ibuprofeno 600mg", preco: 12.50, imagem: "https://example.com/img/ibuprofeno.jpg", descricao: "Anti-inflamatório e analgésico.", classificacao: "medicamentos", destaque: false },
+    { id: 3, nome: "Dipirona 1g", preco: 8.25, imagem: "https://example.com/img/dipirona.jpg", descricao: "Alívio rápido da dor.", classificacao: "medicamentos", destaque: false },
+    { id: 4, nome: "Amoxicilina 500mg", preco: 18.90, imagem: "https://example.com/img/amoxicilina.jpg", descricao: "Antibiótico de amplo espectro.", classificacao: "medicamentos", destaque: false },
+    { id: 5, nome: "Omeprazol 20mg", preco: 9.90, imagem: "https://example.com/img/omeprazol.jpg", descricao: "Tratamento de gastrite e refluxo.", classificacao: "medicamentos", destaque: false },
+    { id: 6, nome: "Losartana 50mg", preco: 14.75, imagem: "https://example.com/img/losartana.jpg", descricao: "Controle da pressão arterial.", classificacao: "medicamentos", destaque: false },
+    { id: 7, nome: "Captopril 25mg", preco: 6.80, imagem: "https://example.com/img/captopril.jpg", descricao: "Redução da pressão arterial.", classificacao: "medicamentos", destaque: false },
+    { id: 8, nome: "Azitromicina 500mg", preco: 22.00, imagem: "https://example.com/img/azitromicina.jpg", descricao: "Antibiótico para infecções respiratórias.", classificacao: "medicamentos", destaque: false },
+    { id: 9, nome: "Prednisona 20mg", preco: 13.50, imagem: "https://example.com/img/prednisona.jpg", descricao: "Anti-inflamatório corticosteroide.", classificacao: "medicamentos", destaque: false },
+    { id: 10, nome: "Cetirizina 10mg", preco: 10.90, imagem: "https://example.com/img/cetirizina.jpg", descricao: "Alívio de sintomas alérgicos.", classificacao: "medicamentos", destaque: true },
+    { id: 11, nome: "Metformina 850mg", preco: 17.99, imagem: "https://example.com/img/metformina.jpg", descricao: "Controle do diabetes tipo 2.", classificacao: "medicamentos", destaque: false },
+    { id: 12, nome: "Lorazepam 2mg", preco: 25.50, imagem: "https://example.com/img/lorazepam.jpg", descricao: "Ansiolítico e indutor do sono.", classificacao: "medicamentos", destaque: false },
+    { id: 13, nome: "Sinvastatina 20mg", preco: 11.75, imagem: "https://example.com/img/sinvastatina.jpg", descricao: "Redução do colesterol.", classificacao: "medicamentos", destaque: false },
+    { id: 14, nome: "Fluoxetina 20mg", preco: 19.90, imagem: "https://example.com/img/fluoxetina.jpg", descricao: "Tratamento de depressão.", classificacao: "medicamentos", destaque: false },
+    { id: 15, nome: "Ranitidina 150mg", preco: 13.90, imagem: "https://example.com/img/ranitidina.jpg", descricao: "Tratamento de úlceras gástricas.", classificacao: "medicamentos", destaque: false },
+    { id: 16, nome: "Nimesulida 100mg", preco: 6.90, imagem: "https://example.com/img/nimesulida.jpg", descricao: "Alívio de dores e inflamações.", classificacao: "medicamentos", destaque: false },
+    { id: 17, nome: "Clonazepam 2mg", preco: 23.40, imagem: "https://example.com/img/clonazepam.jpg", descricao: "Tratamento de convulsões e ansiedade.", classificacao: "medicamentos", destaque: false },
+    { id: 18, nome: "Hidroclorotiazida 25mg", preco: 8.40, imagem: "https://example.com/img/hidroclorotiazida.jpg", descricao: "Diurético para hipertensão.", classificacao: "medicamentos", destaque: false },
+    { id: 19, nome: "Sertralina 50mg", preco: 29.90, imagem: "https://example.com/img/sertralina.jpg", descricao: "Antidepressivo para ansiedade e depressão.", classificacao: "medicamentos", destaque: true },
+    { id: 20, nome: "Diclofenaco 50mg", preco: 9.60, imagem: "https://example.com/img/diclofenaco.jpg", descricao: "Anti-inflamatório para dores musculares.", classificacao: "medicamentos", destaque: false }
+  ],
+
+  suplementos: [
+    { id: 101, nome: "Creatina Monohidratada 300g", preco: 89.90, imagem: "https://example.com/img/creatina.jpg", descricao: "Aumenta força e desempenho em treinos.", classificacao: "suplementos", destaque: false },
+    { id: 102, nome: "Glutamina 150g", preco: 69.90, imagem: "https://example.com/img/glutamina.jpg", descricao: "Recuperação muscular e imunidade.", classificacao: "suplementos", destaque: true },
+    { id: 103, nome: "BCAA 4:1:1 200g", preco: 74.90, imagem: "https://example.com/img/bcaa.jpg", descricao: "Aminoácidos para recuperação muscular.", classificacao: "suplementos", destaque: false },
+    { id: 104, nome: "Termogênico Hardcore 60 caps", preco: 49.90, imagem: "https://example.com/img/termogenico.jpg", descricao: "Aumenta energia e queima de gordura.", classificacao: "suplementos", destaque: false },
+    { id: 105, nome: "ZMA 60 cápsulas", preco: 39.50, imagem: "https://example.com/img/zma.jpg", descricao: "Auxilia na recuperação e força.", classificacao: "suplementos", destaque: false },
+    { id: 106, nome: "HMB 1000mg", preco: 56.90, imagem: "https://example.com/img/hmb.jpg", descricao: "Preserva massa muscular.", classificacao: "suplementos", destaque: false },
+    { id: 107, nome: "Beta Alanina 150g", preco: 48.90, imagem: "https://example.com/img/beta-alanina.jpg", descricao: "Melhora resistência e combate fadiga.", classificacao: "suplementos", destaque: false },
+    { id: 108, nome: "Cafeína 210mg", preco: 22.90, imagem: "https://example.com/img/cafeina.jpg", descricao: "Aumenta energia e foco mental.", classificacao: "suplementos", destaque: false },
+    { id: 109, nome: "L-Carnitina 2000mg", preco: 46.90, imagem: "https://example.com/img/carnitina.jpg", descricao: "Ajuda na queima de gordura.", classificacao: "suplementos", destaque: false },
+    { id: 110, nome: "Arginina 500mg", preco: 35.90, imagem: "https://example.com/img/arginina.jpg", descricao: "Vasodilatação e rendimento físico.", classificacao: "suplementos", destaque: false },
+    { id: 111, nome: "Coenzima Q10 100mg", preco: 52.90, imagem: "https://example.com/img/coq10.jpg", descricao: "Suporte cardiovascular e energia celular.", classificacao: "suplementos", destaque: false },
+    { id: 112, nome: "Palatinose 300g", preco: 66.90, imagem: "https://example.com/img/palatinose.jpg", descricao: "Fornecimento gradual de energia.", classificacao: "suplementos", destaque: false },
+    { id: 113, nome: "Tribulus Terrestris 750mg", preco: 44.90, imagem: "https://example.com/img/tribulus.jpg", descricao: "Suporte hormonal natural.", classificacao: "suplementos", destaque: false },
+    { id: 114, nome: "D-Ribose 150g", preco: 59.00, imagem: "https://example.com/img/dribose.jpg", descricao: "Energia celular para o coração e músculos.", classificacao: "suplementos", destaque: false },
+    { id: 115, nome: "Waxy Maize 1kg", preco: 42.90, imagem: "https://example.com/img/waxy.jpg", descricao: "Carboidrato de absorção rápida.", classificacao: "suplementos", destaque: false },
+    { id: 116, nome: "Picolinato de Cromo", preco: 28.90, imagem: "https://example.com/img/cromo.jpg", descricao: "Regula insulina e apetite.", classificacao: "suplementos", destaque: false },
+    { id: 117, nome: "Spirulina em pó", preco: 41.00, imagem: "https://example.com/img/spirulina.jpg", descricao: "Fonte natural de proteína vegetal.", classificacao: "suplementos", destaque: false },
+    { id: 118, nome: "Maca Peruana 500mg", preco: 34.50, imagem: "https://example.com/img/maca.jpg", descricao: "Aumenta energia e libido.", classificacao: "suplementos", destaque: true },
+    { id: 119, nome: "Ginseng Panax 400mg", preco: 37.90, imagem: "https://example.com/img/ginseng.jpg", descricao: "Melhora desempenho físico e mental.", classificacao: "suplementos", destaque: false },
+    { id: 120, nome: "Óleo de Cártamo 1000mg", preco: 36.90, imagem: "https://example.com/img/cartamo.jpg", descricao: "Auxilia no controle de peso.", classificacao: "suplementos", destaque: false }
+  ],
+
+  vitaminas: [
+    { id: 201, nome: "Vitamina C 1g", preco: 24.90, imagem: "https://example.com/img/vitamina-c.jpg", descricao: "Fortalece o sistema imune.", classificacao: "vitaminas", destaque: true },
+    { id: 202, nome: "Vitamina D3 2000UI", preco: 32.90, imagem: "https://example.com/img/vitamina-d3.jpg", descricao: "Importante para ossos e imunidade.", classificacao: "vitaminas", destaque: false },
+    { id: 203, nome: "Vitamina A", preco: 19.90, imagem: "https://example.com/img/vitamina-a.jpg", descricao: "Auxilia na visão e imunidade.", classificacao: "vitaminas", destaque: false },
+    { id: 204, nome: "Vitamina E", preco: 22.90, imagem: "https://example.com/img/vitamina-e.jpg", descricao: "Antioxidante que protege as células.", classificacao: "vitaminas", destaque: false },
+    { id: 205, nome: "Vitamina K2", preco: 36.90, imagem: "https://example.com/img/k2.jpg", descricao: "Ajuda na coagulação e ossos.", classificacao: "vitaminas", destaque: false },
+    { id: 206, nome: "Vitamina B1", preco: 14.90, imagem: "https://example.com/img/b1.jpg", descricao: "Auxilia no metabolismo energético.", classificacao: "vitaminas", destaque: false },
+    { id: 207, nome: "Vitamina B2", preco: 15.90, imagem: "https://example.com/img/b2.jpg", descricao: "Importante para saúde da pele e olhos.", classificacao: "vitaminas", destaque: false },
+    { id: 208, nome: "Vitamina B3", preco: 16.90, imagem: "https://example.com/img/b3.jpg", descricao: "Contribui para metabolismo de energia.", classificacao: "vitaminas", destaque: false },
+    { id: 209, nome: "Vitamina B5", preco: 17.90, imagem: "https://example.com/img/b5.jpg", descricao: "Ajuda na produção de hormônios.", classificacao: "vitaminas", destaque: false },
+    { id: 210, nome: "Vitamina B6", preco: 18.90, imagem: "https://example.com/img/b6.jpg", descricao: "Importante para o cérebro e nervos.", classificacao: "vitaminas", destaque: false },
+    { id: 211, nome: "Vitamina B7 (Biotina)", preco: 26.90, imagem: "https://example.com/img/biotina.jpg", descricao: "Boa para unhas e cabelos.", classificacao: "vitaminas", destaque: false },
+    { id: 212, nome: "Vitamina B9 (Ácido Fólico)", preco: 20.90, imagem: "https://example.com/img/folico.jpg", descricao: "Importante na gestação.", classificacao: "vitaminas", destaque: true },
+    { id: 213, nome: "Vitamina B12", preco: 21.90, imagem: "https://example.com/img/b12.jpg", descricao: "Essencial para sangue e sistema nervoso.", classificacao: "vitaminas", destaque: false },
+    { id: 214, nome: "Vitamina C com Zinco", preco: 28.90, imagem: "https://example.com/img/c-zinco.jpg", descricao: "Reforço duplo de imunidade.", classificacao: "vitaminas", destaque: false },
+    { id: 215, nome: "Multivitamínico Feminino", preco: 36.90, imagem: "https://example.com/img/multi-fem.jpg", descricao: "Suporte completo para mulheres.", classificacao: "vitaminas", destaque: false },
+    { id: 216, nome: "Multivitamínico Masculino", preco: 36.90, imagem: "https://example.com/img/multi-masc.jpg", descricao: "Saúde e disposição para homens.", classificacao: "vitaminas", destaque: false },
+    { id: 217, nome: "Vitamina Infantil Gomas", preco: 31.90, imagem: "https://example.com/img/gomas.jpg", descricao: "Vitaminas para crianças.", classificacao: "vitaminas", destaque: false },
+    { id: 218, nome: "Vitamina D+K", preco: 35.90, imagem: "https://example.com/img/dk.jpg", descricao: "Fortalece ossos e imunidade.", classificacao: "vitaminas", destaque: false },
+    { id: 219, nome: "Vitamina C Kids", preco: 18.90, imagem: "https://example.com/img/c-kids.jpg", descricao: "Reforço infantil para imunidade.", classificacao: "vitaminas", destaque: false },
+    { id: 220, nome: "Vitamina para Gestantes", preco: 42.00, imagem: "https://example.com/img/gestante.jpg", descricao: "Com ácido fólico e ferro.", classificacao: "vitaminas", destaque: true }
+],
+
+  nutricao: [
+    { id: 301, nome: "Whey Protein Concentrado 900g", preco: 129.90, imagem: "https://example.com/img/whey.jpg", descricao: "Suplemento proteico para ganho muscular.", classificacao: "nutricao", destaque: true },
+    { id: 302, nome: "Aveia em Flocos Finos 1kg", preco: 9.90, imagem: "https://example.com/img/aveia.jpg", descricao: "Fonte de fibras para o café da manhã.", classificacao: "nutricao", destaque: false },
+    { id: 303, nome: "Pasta de Amendoim Integral 1kg", preco: 23.90, imagem: "https://example.com/img/pasta.jpg", descricao: "Fonte de gordura boa e energia.", classificacao: "nutricao", destaque: false },
+    { id: 304, nome: "Óleo de Coco Extra Virgem 200ml", preco: 19.90, imagem: "https://example.com/img/oleo-coco.jpg", descricao: "Gordura saudável para cozinhar ou suplementar.", classificacao: "nutricao", destaque: false },
+    { id: 305, nome: "Granola Tradicional 500g", preco: 12.90, imagem: "https://example.com/img/granola.jpg", descricao: "Mistura de cereais e frutas para energia.", classificacao: "nutricao", destaque: false },
+    { id: 306, nome: "Leite de Amêndoas 1L", preco: 16.90, imagem: "https://example.com/img/leite-amendoa.jpg", descricao: "Alternativa vegetal ao leite tradicional.", classificacao: "nutricao", destaque: false },
+    { id: 307, nome: "Mix de Castanhas 150g", preco: 18.90, imagem: "https://example.com/img/castanhas.jpg", descricao: "Lanche saudável rico em gorduras boas.", classificacao: "nutricao", destaque: false },
+    { id: 308, nome: "Isotônico Natural 500ml", preco: 6.90, imagem: "https://example.com/img/isotonico.jpg", descricao: "Reposição de eletrólitos e hidratação.", classificacao: "nutricao", destaque: false },
+    { id: 309, nome: "Chia em Sementes 250g", preco: 10.50, imagem: "https://example.com/img/chia.jpg", descricao: "Fonte de ômega-3 e fibras.", classificacao: "nutricao", destaque: false },
+    { id: 310, nome: "Linhaça Dourada 200g", preco: 9.40, imagem: "https://example.com/img/linhaca.jpg", descricao: "Melhora o trânsito intestinal.", classificacao: "nutricao", destaque: false },
+    { id: 311, nome: "Suco Verde Detox 1L", preco: 11.90, imagem: "https://example.com/img/suco-detox.jpg", descricao: "Bebida funcional com ingredientes naturais.", classificacao: "nutricao", destaque: false },
+    { id: 312, nome: "Barra de Proteína 60g", preco: 7.50, imagem: "https://example.com/img/barra-proteina.jpg", descricao: "Snack com alto teor de proteínas.", classificacao: "nutricao", destaque: false },
+    { id: 313, nome: "Farinha de Banana Verde 200g", preco: 14.90, imagem: "https://example.com/img/banana-verde.jpg", descricao: "Ajuda no controle glicêmico e saciedade.", classificacao: "nutricao", destaque: false },
+    { id: 314, nome: "Bebida de Soja com Cacau 1L", preco: 7.90, imagem: "https://example.com/img/soja-cacau.jpg", descricao: "Alternativa nutritiva ao achocolatado.", classificacao: "nutricao", destaque: false },
+    { id: 315, nome: "Tofu 500g", preco: 17.90, imagem: "https://example.com/img/tofu.jpg", descricao: "Fonte vegetal de proteína derivada da soja.", classificacao: "nutricao", destaque: false },
+    { id: 316, nome: "Arroz Integral 1kg", preco: 6.90, imagem: "https://example.com/img/arroz-integral.jpg", descricao: "Fonte de energia com fibras.", classificacao: "nutricao", destaque: false },
+    { id: 317, nome: "Macarrão de Grão-de-Bico 500g", preco: 13.90, imagem: "https://example.com/img/macarão-bico.jpg", descricao: "Rico em proteínas e sem glúten.", classificacao: "nutricao", destaque: true },
+    { id: 318, nome: "Água de Coco 1L", preco: 7.90, imagem: "https://example.com/img/agua-coco.jpg", descricao: "Hidratação natural com eletrólitos.", classificacao: "nutricao", destaque: false },
+    { id: 319, nome: "Mel Puro 500g", preco: 18.90, imagem: "https://example.com/img/mel.jpg", descricao: "Fonte natural de energia e antioxidantes.", classificacao: "nutricao", destaque: false },
+    { id: 320, nome: "Cacau em Pó 100% 200g", preco: 21.90, imagem: "https://example.com/img/cacau.jpg", descricao: "Rico em antioxidantes e sem açúcar.", classificacao: "nutricao", destaque: false }
+    ],
+
+  beleza: [
+    { id: 401, nome: "Shampoo Anticaspa 400ml", preco: 15.90, imagem: "https://example.com/img/shampoo.jpg", descricao: "Combate a caspa e fortalece o couro cabeludo.", classificacao: "beleza", destaque: false },
+    { id: 402, nome: "Condicionador Hidratante 400ml", preco: 16.90, imagem: "https://example.com/img/condicionador.jpg", descricao: "Hidratação intensa para cabelos secos.", classificacao: "beleza", destaque: false },
+    { id: 403, nome: "Sabonete Líquido Facial 150ml", preco: 22.90, imagem: "https://example.com/img/sabonete-facial.jpg", descricao: "Limpeza suave para o rosto.", classificacao: "beleza", destaque: false },
+    { id: 404, nome: "Protetor Solar FPS 50 120ml", preco: 34.90, imagem: "https://example.com/img/protetor.jpg", descricao: "Alta proteção contra raios UVA e UVB.", classificacao: "beleza", destaque: true },
+    { id: 405, nome: "Água Micelar 200ml", preco: 29.90, imagem: "https://example.com/img/micelar.jpg", descricao: "Remove maquiagem e impurezas.", classificacao: "beleza", destaque: false },
+    { id: 406, nome: "Creme Anti-idade 50g", preco: 59.90, imagem: "https://example.com/img/anti-idade.jpg", descricao: "Reduz rugas e linhas de expressão.", classificacao: "beleza", destaque: false },
+    { id: 407, nome: "Hidratante Corporal 400ml", preco: 19.90, imagem: "https://example.com/img/hidratante.jpg", descricao: "Pele macia e nutrida por mais tempo.", classificacao: "beleza", destaque: false },
+    { id: 408, nome: "Máscara de Argila Verde", preco: 12.90, imagem: "https://example.com/img/argila.jpg", descricao: "Controla oleosidade e limpa profundamente.", classificacao: "beleza", destaque: false },
+    { id: 409, nome: "Esfoliante Facial 100g", preco: 18.90, imagem: "https://example.com/img/esfoliante.jpg", descricao: "Remove células mortas e renova a pele.", classificacao: "beleza", destaque: false },
+    { id: 410, nome: "Desodorante Roll-on", preco: 8.90, imagem: "https://example.com/img/desodorante.jpg", descricao: "Proteção contra odores por 48h.", classificacao: "beleza", destaque: false },
+    { id: 411, nome: "Batom Hidratante", preco: 15.00, imagem: "https://example.com/img/batom.jpg", descricao: "Cores intensas e nutrição para os lábios.", classificacao: "beleza", destaque: false },
+    { id: 412, nome: "Removedor de Maquiagem Bifásico", preco: 21.90, imagem: "https://example.com/img/removedor.jpg", descricao: "Remove maquiagem à prova d’água.", classificacao: "beleza", destaque: false },
+    { id: 413, nome: "Base Líquida Matte", preco: 28.90, imagem: "https://example.com/img/base.jpg", descricao: "Cobertura uniforme e longa duração.", classificacao: "beleza", destaque: false },
+    { id: 414, nome: "Lenços Demaquilantes", preco: 10.90, imagem: "https://example.com/img/lencos.jpg", descricao: "Praticidade na remoção de maquiagem.", classificacao: "beleza", destaque: false },
+    { id: 415, nome: "Sérum Facial com Ácido Hialurônico", preco: 49.90, imagem: "https://example.com/img/serum.jpg", descricao: "Pele mais firme e hidratada.", classificacao: "beleza", destaque: true },
+    { id: 416, nome: "Creme para Mãos com Ureia", preco: 12.90, imagem: "https://example.com/img/creme-maos.jpg", descricao: "Evita o ressecamento da pele.", classificacao: "beleza", destaque: false },
+    { id: 417, nome: "Gel para Sobrancelhas", preco: 16.90, imagem: "https://example.com/img/gel-sobrancelha.jpg", descricao: "Modela e fixa os fios o dia todo.", classificacao: "beleza", destaque: false },
+    { id: 418, nome: "Perfume Feminino 100ml", preco: 89.90, imagem: "https://example.com/img/perfume-fem.jpg", descricao: "Fragrância suave e marcante.", classificacao: "beleza", destaque: false },
+    { id: 419, nome: "Perfume Masculino 100ml", preco: 95.00, imagem: "https://example.com/img/perfume-masc.jpg", descricao: "Aroma intenso e duradouro.", classificacao: "beleza", destaque: false },
+    { id: 420, nome: "Fixador de Maquiagem 120ml", preco: 22.90, imagem: "https://example.com/img/fixador.jpg", descricao: "Prolonga a duração da maquiagem.", classificacao: "beleza", destaque: false }
+    ],
+
+  bebes: [
+    { id: 501, nome: "Fralda Descartável M 30 unid.", preco: 49.90, imagem: "https://example.com/img/fralda.jpg", descricao: "Alta absorção e conforto para o bebê.", classificacao: "bebes", destaque: true },
+    { id: 502, nome: "Lenço Umedecido 100 unid.", preco: 12.90, imagem: "https://example.com/img/lenco.jpg", descricao: "Limpeza suave para peles delicadas.", classificacao: "bebes", destaque: false },
+    { id: 503, nome: "Sabonete Líquido Bebê 200ml", preco: 10.90, imagem: "https://example.com/img/sabonete-bebe.jpg", descricao: "Limpeza suave e sem lágrimas.", classificacao: "bebes", destaque: false },
+    { id: 504, nome: "Pomada para Assaduras 45g", preco: 14.90, imagem: "https://example.com/img/pomada.jpg", descricao: "Protege e hidrata contra assaduras.", classificacao: "bebes", destaque: false },
+    { id: 505, nome: "Shampoo Infantil 200ml", preco: 11.90, imagem: "https://example.com/img/shampoo-bebe.jpg", descricao: "Fórmula delicada para os pequenos.", classificacao: "bebes", destaque: false },
+    { id: 506, nome: "Condicionador Bebê 200ml", preco: 12.90, imagem: "https://example.com/img/condicionador-bebe.jpg", descricao: "Desembaraça sem agredir os fios.", classificacao: "bebes", destaque: false },
+    { id: 507, nome: "Chupeta Ortodôntica Tam. 1", preco: 9.90, imagem: "https://example.com/img/chupeta.jpg", descricao: "Conforto e segurança para o bebê.", classificacao: "bebes", destaque: false },
+    { id: 508, nome: "Mordedor de Silicone", preco: 15.00, imagem: "https://example.com/img/mordedor.jpg", descricao: "Alivia o desconforto do nascimento dos dentes.", classificacao: "bebes", destaque: false },
+    { id: 509, nome: "Mamadeira 240ml", preco: 18.90, imagem: "https://example.com/img/mamadeira.jpg", descricao: "Tampa antivazamento e bico macio.", classificacao: "bebes", destaque: false },
+    { id: 510, nome: "Toalha com Capuz", preco: 29.90, imagem: "https://example.com/img/toalha.jpg", descricao: "Conforto após o banho.", classificacao: "bebes", destaque: false },
+    { id: 511, nome: "Escova de Cabelo Infantil", preco: 7.90, imagem: "https://example.com/img/escova.jpg", descricao: "Cerdas macias para o couro cabeludo.", classificacao: "bebes", destaque: false },
+    { id: 512, nome: "Cotonete Infantil 150 unid.", preco: 6.90, imagem: "https://example.com/img/cotonete.jpg", descricao: "Segurança para higiene dos ouvidos.", classificacao: "bebes", destaque: false },
+    { id: 513, nome: "Colônia Suave para Bebês", preco: 17.90, imagem: "https://example.com/img/colonia.jpg", descricao: "Fragrância suave e hipoalergênica.", classificacao: "bebes", destaque: true },
+    { id: 514, nome: "Luva de Banho Infantil", preco: 9.90, imagem: "https://example.com/img/luva.jpg", descricao: "Ajuda na higiene delicada do bebê.", classificacao: "bebes", destaque: false },
+    { id: 515, nome: "Almofada de Amamentação", preco: 79.90, imagem: "https://example.com/img/almofada.jpg", descricao: "Mais conforto para mãe e bebê.", classificacao: "bebes", destaque: false },
+    { id: 516, nome: "Babador com Bolso Coletor", preco: 14.90, imagem: "https://example.com/img/babador.jpg", descricao: "Evita sujeiras durante a alimentação.", classificacao: "bebes", destaque: false },
+    { id: 517, nome: "Termômetro Digital Infantil", preco: 32.90, imagem: "https://example.com/img/termometro.jpg", descricao: "Medição rápida e precisa.", classificacao: "bebes", destaque: false },
+    { id: 518, nome: "Prato com Divisórias e Ventosa", preco: 21.90, imagem: "https://example.com/img/prato.jpg", descricao: "Facilita a hora da papinha.", classificacao: "bebes", destaque: false },
+    { id: 519, nome: "Copo de Transição 180ml", preco: 19.90, imagem: "https://example.com/img/copo.jpg", descricao: "Ajuda o bebê a beber sozinho.", classificacao: "bebes", destaque: false },
+    { id: 520, nome: "Escova de Mamadeira", preco: 8.90, imagem: "https://example.com/img/escova-mamadeira.jpg", descricao: "Facilita a limpeza completa da mamadeira.", classificacao: "bebes", destaque: false }
+    ]
+}
+
+
+export default produtos

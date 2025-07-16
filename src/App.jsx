@@ -5,6 +5,11 @@ import Home from './pages/Home';
 import Sobre from './pages/Sobre'; // Adicionei essa importação
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Suplementos from './pages/suplementos';
+import Vitaminas from './pages/vitaminas';
+import Nutricao from './pages/nutricao';
+import Beleza from './pages/beleza';
+import Bebes from './pages/bebes';
+import Medicamentos from './pages/medicamentos';
 
 
 function Layout() {
@@ -29,6 +34,11 @@ function App() {
         <Route path="contato" element={<h1 style={{ padding: '2rem' }}>Contato</h1>} />
         <Route path="categorias">
           <Route path="suplementos" element={<Suplementos/>} />
+          <Route path="vitaminas" element={<Vitaminas/>} />
+          <Route path="dieta-nutricao" element={<Nutricao/>} />
+          <Route path="beleza" element={<Beleza/>} />
+          <Route path="baby" element={<Bebes/>} />
+          <Route path="medicamentos" element={<Medicamentos/>} />
         </Route>
       </Route>
       
