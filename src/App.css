@@ -10,6 +10,8 @@
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
+  text-decoration: none !important;
+
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
@@ -64,4 +66,39 @@
 }
 .value-item h3 {
   margin-top: 0;
+}
+/* Removendo as bordas pretas de links e botões */
+a{
+text-decoration: none !important;
+}
+a:focus,
+button:focus,
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none;
+}
+button,
+a {
+  border: none !important;
+  background: none;
+}
+button:focus,
+a:focus,
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+.site-logo {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.site-logo * {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-decoration: none !important;
 }

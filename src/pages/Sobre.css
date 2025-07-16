@@ -1,222 +1,226 @@
-/* Estilos para o background */
+/* Variáveis CSS para cores e fontes - Tema Claro */
+:root {
+  --primary-color: #3498db;
+  --primary-dark: #2980b9;
+  --text-dark: #333333;
+  --text-muted: #666666;
+  --text-light: #f6f7f8; /* Para elementos que precisam de contraste */
+  --bg-light: #ffffff;
+  --bg-gray: #f5f5f5;
+  --bg-blue: rgba(21, 106, 155, 0.1);
+  --border-color: #e0e0e0;
+  --transition: all 0.3s ease;
+  --font-primary: 'Poppins', sans-serif;
+}
+
+/* Estilos base */
+body {
+  font-family: var(--font-primary);
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+}
+
+/* Background - Removendo o fundo escuro */
+/* Background com imagem */
 .fullscreen-background {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('public/images/fundo.jpg');
+  background-image: url('public/images/bg_1.jpg'); /* Substitua pelo seu caminho */
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   z-index: -1;
-  filter: brightness(0.7);
-  /* Ajuste de brilho */
+  opacity: 8; /* Transparência reduzida para suavizar */
+  filter: brightness(1.1); /* Ajuste de brilho */
 }
 
-/* Overlay mais transparente para mostrar mais o fundo */
 .content-overlay {
   position: relative;
-  /* background-color: rgba(255, 255, 255, 0.7); Opacidade reduzida */
   min-height: 100vh;
-
+  background-color: rgba(255, 255, 255, 0.411); /* Overlay branco semi-transparente */
 }
 
-/* Ajustes para melhor visibilidade do fundo */
-.section-content {
-  /* background-color: rgba(255, 255, 255, 0.88); Fundo mais transparente */
-  border: 1px solid rgba(255, 255, 255, 0);
-  /* Borda sutil */
-  backdrop-filter: blur(4px);
-  /* Efeito de desfoque sutil */
-  padding: 2rem;
-  border-radius: 10px;
-  color: #f6f7f8;
-  /* Cor do texto mais clara */
-  font-family: 'Arial', sans-serif;
-  /* Fonte padrão */
-  max-width: 1200px;
-  /* Largura máxima para manter o conteúdo legível */
-  cursor: pointer;
-  /* Indica que o cartão é interativo */
-
+/* Se quiser um efeito de gradiente sobre a imagem */
+.fullscreen-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, 
+             rgba(255,255,255,0.2) 0%, 
+             rgba(255,255,255,0.8) 100%);
 }
 
-/* Melhorando o contraste do texto para manter legibilidade */
+ 
+
+/* Tipografia */
 .main-title {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.99);
-  /* Sombra forte */
-  color: white;
-  /* Cor do texto mais clara */
-  font-size: 5rem;
-  /* Tamanho do texto */
-  font-weight: bold;
-  /* Negrito para destaque */
+  font-family: var(--font-primary);
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-dark);
+  font-size: clamp(2rem, 5vw, 5rem);
   margin-top: 10rem;
-  /* Espaçamento acima do título */
 }
 
 .subtitle {
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.988);
-  color: white;
-  font-size: 1.5rem;
-  /* Tamanho do subtítulo */
-  font-weight: normal;
-  /* Peso normal para o subtítulo */
-  margin-top: 1rem;
-  /* Espaçamento acima do subtítulo */
-  margin-bottom: 15rem;
-  /* Espaçamento abaixo do subtítulo */
+  color: var(--text-muted);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  margin: 1rem auto 15rem;
   text-align: center;
-  /* Centraliza o subtítulo */
   font-style: italic;
-  /* Estilo itálico para o subtítulo */
   text-transform: uppercase;
-  /* Transforma o texto em maiúsculas */
-
 }
 
-/* Estilos para o cabeçalho da seção */
+/* Seções */
+.section-content {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  animation: fadeIn 0.8s ease-out forwards;
+}
 
 .section-header {
-  color: #f6f7f8;
-  font-size: 2.5rem;
-  /* Tamanho do texto do cabeçalho */
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
   font-weight: bold;
-  /* Negrito para destaque */
   margin-bottom: 2rem;
-  /* Espaçamento abaixo do cabeçalho */
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  color: var(--text-dark);
 }
 
-/* Ajustes nas cores para melhor contraste */
-.text-content {
-  color: #f6f7f8;
-  font-size: 1.2rem;
-  /* Tamanho do texto */
-  line-height: 1.6;
-  /* Altura da linha para melhor legibilidade */
-  margin-bottom: 2rem;
-  /* Espaçamento abaixo do texto */
-
-}
-
-.value-card {
-  background-color: rgba(255, 255, 255, 0.85);
-
-}
-
-
-.team-card:hover {
-  transform: scale(1.05);
-}
-
-.card-image {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 1rem;
-  overflow: hidden;
-}
-
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.value-card {
-  background: #156a9bcc;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border-left: 4px solid #3498db;
-  transition: all 0.3s ease;
-}
-
-.value-card:hover {
-  background: rgba(4, 80, 99, 0.507);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transform: translateY(-5px);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .main-title {
-    font-size: 2rem;
-  }
-
-  .section-content {
-    padding: 1.5rem;
-  }
-
-  .card-image {
-    width: 120px;
-    height: 120px;
-  }
-}
-
-.card-body-title {
-
-  font-weight: bold;
-  color: #f5f3f3;
-
-
+.section-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--primary-color);
 }
 
 .section-description {
   font-size: 1.2rem;
   line-height: 1.6;
-  color: #ffffff;
+  color: var(--text-muted);
   margin-bottom: 2rem;
 }
 
-.img-fluid {
-  max-width: 100%;
-  height: auto;
+/* Estatísticas */
+.stats-section {
+  background: var(--bg-blue);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 3rem auto;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  padding: 1.5rem;
+}
+
+.stat-number {
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.stat-label {
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Cards (Time, Valores, Serviços) */
+.card-common {
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  transition: var(--transition);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.team-card,
+.testimonial-card {
+  padding: 1.5rem;
+  text-align: center;
+  height: 100%;
+}
+
+.team-card:hover,
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-color);
+}
+
+.card-body-title,
+.testimonial-name {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.card-body-role {
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.card-body-bio,
+.testimonial-text {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.testimonial-text {
+  font-style: italic;
+}
+
+.testimonial-rating {
+  color: gold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Valores - Ajuste para contraste com imagens de fundo */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .value-card {
   position: relative;
-  padding: 20px;
-  border-radius: 8px;
-  color: rgb(255, 255, 255);
-  /* Para garantir que o texto seja legível */
-  overflow: hidden;
-  /* Para evitar que o conteúdo saia do cartão */
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: rgba(21, 106, 155, 0.8);
-  /* Cor de fundo com opacidade */
-  backdrop-filter: blur(5px);
-  /* Efeito de desfoque no fundo */
-  margin-bottom: 2rem;
-  /* Espaçamento entre os cartões */
-  text-align: center;
-  /* Centraliza o texto dentro do cartão */
-  font-family: 'Arial', sans-serif;
-  /* Fonte padrão */
-  font-size: 1.2rem;
-  /* Tamanho do texto */
-  line-height: 1.5;
-  /* Altura da linha para melhor legibilidade */
-  align-items: center;
-  position: relative;
-  /* Necessário para o pseudo-elemento ::before */
-  z-index: 0;
-  /* Garante que o cartão fique acima do fundo */
-  max-width: 400px;
-  /* Limita a largura máxima do cartão */
-  margin: 0 auto;
-  /* Centraliza o cartão na tela */
+  padding: 2rem;
   border-radius: 10px;
-  /* Bordas arredondadas */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  /* Sombra para dar profundidade */
+  overflow: hidden;
   cursor: pointer;
-  /* Indica que o cartão é interativo */
-
-
-
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  transition: var(--transition);
+  border: none;
 }
 
 .value-card::before {
@@ -226,33 +230,196 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.5;
-  /* Ajuste a opacidade conforme necessário */
+  background: linear-gradient(
+    to bottom,
+    rgba(245, 243, 243, 0) 0%,
+    rgba(228, 226, 226, 0) 50%,
+    rgba(211, 210, 210, 0) 100%
+  );
   z-index: 1;
-  /* Coloca o overlay abaixo do conteúdo */
+  transition: var(--transition);
+  border-radius: 10px;
 }
 
-.value-card.missao::before {
-  background-image: url('public/images/missao.jpg');
-  /* Altere para o caminho da sua imagem */
+.value-card:hover::before {
+  background: linear-gradient(
+    to bottom,
+    rgba(226, 224, 224, 0) 0%,
+    rgba(199, 199, 199, 0.5) 50%,
+    rgba(199, 199, 199, 0.5) 100%
+  );
 }
 
-.value-card.visao::before {
-  background-image: url('public/images/missao.jpg');
-  /* Altere para o caminho da sua imagem */
-}
-
-.value-card.valores::before {
-  background-image: url('public/images/valores.jpg');
-  /* Altere para o caminho da sua imagem */
-}
-
-.value-card h4,
-.value-card p {
+.value-card > * {
   position: relative;
-  /* Para garantir que o texto fique acima do overlay */
   z-index: 2;
-  /* Coloca o conteúdo acima do overlay */
+  color: var(--text-light);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.value-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.8));
+}
+
+.value-card h4 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.value-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* Efeito de zoom sutil ao passar o mouse */
+.value-card:hover {
+  transform: scale(1.03);
+}
+
+/* Melhorias para mobile */
+@media (max-width: 768px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .value-card {
+    min-height: 200px;
+    padding: 1.5rem;
+  }
+}
+
+/* Serviços */
+.service-card {
+ 
+  background: var(--bg-light);
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-color);
+
+  transition: var(--transition);
+  background-color: var(--bg-gray);
+  color: var(--text-dark);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 1200px;
+}
+
+.service-title {
+  color: var(--text-dark);
+ 
+  
+}
+
+.service-description {
+  color: var(--text-muted);
+}
+
+.service-features li {
+  color: var(--text-muted);
+}
+
+/* Botões */
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  padding: 0.8rem 2rem;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  transform: translateY(-2px);
+  color: white;
+}
+
+/* Modal de Contato */
+.contact-info {
+  background-color: var(--bg-gray);
+  padding: 20px;
+  border-radius: 8px;
+  height: 100%;
+  border: 1px solid var(--border-color);
+}
+
+/* Formulário */
+.form-control {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 15px;
+  background-color: var(--bg-light);
+}
+
+.form-label {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+/* Ajustes para elementos que precisam de contraste */
+.bg-dark-element {
+  background-color: var(--text-dark);
+  color: var(--text-light);
+}
+
+/* Animações (mantidas as mesmas) */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Media Queries (mantidas as mesmas) */
+@media (max-width: 992px) {
+  .main-title {
+    margin-top: 7rem;
+  }
+  
+  .subtitle {
+    margin-bottom: 10rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    margin-top: 5rem;
+  }
+  
+  .subtitle {
+    margin-bottom: 7rem;
+  }
+  
+  .section-content {
+    padding: 1.5rem;
+  }
+  
+  .stats-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .main-title {
+    margin-top: 4rem;
+  }
+  
+  .stats-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-info {
+    margin-bottom: 20px;
+  }
 }
