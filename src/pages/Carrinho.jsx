@@ -12,7 +12,7 @@ export default function Carrinho() {
     total,
   } = useCarrinho();
 
-  // States para hover dos botões Remover e Finalizar
+  
   const [hoverRemoverId, setHoverRemoverId] = useState(null);
   const [hoverFinalizar, setHoverFinalizar] = useState(false);
 
