@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useCarrinho } from '../../contexts/CarrinhoContext';
 
 export default function Header() {
+
+  const { carrinho } = useCarrinho(); 
+  const totalItens = carrinho.reduce((soma, item) => soma + item.quantidade, 0);
   return (
     <div className="site-navbar py-2">
       {/* barra de buscar!!! entaoooo... nao ta funcionando kkk*/}
@@ -54,10 +58,32 @@ export default function Header() {
 
           <div className="icons">
             <button className="icons-btn d-inline-block js-search-open">
-              <span className="icon-search"></span>
+            <span className="icon-search"></span>
             </button>
-            <Link to="/carrinho" className="icons-btn d-inline-block bag">
+             <Link to="/carrinho" className="icons-btn d-inline-block bag" style={{ position: 'relative' }}>
               <span className="icon-shopping-bag"></span>
+              {totalItens > 0 && (
+                <span
+                  style={{
+                    position: 'absolute',
+                    top: '-4px',
+                    right: '-4px',
+                    background: 'red',
+                    color: 'white',
+                    borderRadius: '50%',
+                    width: '16px',
+                    height: '16px',
+                    fontSize: '10px',
+                    fontWeight: 'bold',
+                    lineHeight: '16px',
+                    textAlign: 'center',
+                    userSelect: 'none',
+                    pointerEvents: 'none',
+                  }}
+                >
+                  {totalItens}
+                </span>
+              )}
             </Link>
             <button className="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none">
               <span className="icon-menu"></span>
