@@ -1,0 +1,41 @@
+.produto-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+
+.produto-imagem {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.produto-info {
+  flex: 1;
+}
+
+.produto-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preco {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.descricao {
+  font-size: 14px;
+  color: #666;
+}
+
+.botao-carrinho-container {
+  margin-left: 10px;
+}

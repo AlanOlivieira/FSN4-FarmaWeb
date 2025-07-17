@@ -1,0 +1,14 @@
+.carousel-item img {
+  max-height: 300px; 
+  width: auto;         
+  margin: 0 auto;      
+  display: block;
+  object-fit: contain; 
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5); 
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}

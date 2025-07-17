@@ -42,6 +42,7 @@ export default function Header() {
                 <li className="has-children">
                   <Link to="/categorias">Categorias</Link>
                   <ul className="dropdown">
+                    <li><Link to="/categorias/medicamentos">Medicamentos e saúde</Link></li>
                     <li><Link to="/categorias/suplementos">Suplementos</Link></li>
                     <li><Link to="/categorias/vitaminas">Vitaminas</Link></li>
                     <li><Link to="/categorias/dieta-nutricao">Dieta & Nutrição</Link></li>

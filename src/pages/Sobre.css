@@ -200,27 +200,26 @@ body {
 /* Valores - Ajuste para contraste com imagens de fundo */
 .values-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
+  padding: 2rem;
+  background-color: var(--bg-light);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.8s ease-out forwards;
+  
 }
 
 .value-card {
   position: relative;
-  padding: 2rem;
+  height: 300px;
   border-radius: 10px;
-  overflow: hidden;
-  cursor: pointer;
-  min-height: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   background-size: cover;
   background-position: center;
-  transition: var(--transition);
-  border: none;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .value-card::before {
@@ -230,67 +229,67 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(245, 243, 243, 0) 0%,
-    rgba(228, 226, 226, 0) 50%,
-    rgba(211, 210, 210, 0) 100%
-  );
-  z-index: 1;
-  transition: var(--transition);
-  border-radius: 10px;
+  background: rgba(0, 0, 0, 0);
+  transition: all 0.5s ease;
+}
+
+.value-card:hover {
+  transform: scale(1.03);
 }
 
 .value-card:hover::before {
-  background: linear-gradient(
-    to bottom,
-    rgba(226, 224, 224, 0) 0%,
-    rgba(199, 199, 199, 0.5) 50%,
-    rgba(199, 199, 199, 0.5) 100%
-  );
+  background: rgba(0, 0, 0, 0.7);
 }
 
-.value-card > * {
-  position: relative;
-  z-index: 2;
-  color: var(--text-light);
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+.value-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  color: white;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.5s ease;
+}
+
+.value-card:hover .value-content {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .value-icon {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
-  color: var(--primary-color);
-  filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.8));
 }
 
 .value-card h4 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  font-weight: 600;
 }
 
 .value-card p {
   font-size: 1rem;
   line-height: 1.5;
-  opacity: 0.9;
 }
 
-/* Efeito de zoom sutil ao passar o mouse */
-.value-card:hover {
-  transform: scale(1.03);
+/* Cores específicas para cada card */
+.value-card.missao:hover .value-icon {
+  color: #2ecc71;
 }
 
-/* Melhorias para mobile */
-@media (max-width: 768px) {
-  .values-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .value-card {
-    min-height: 200px;
-    padding: 1.5rem;
-  }
+.value-card.visao:hover .value-icon {
+  color: #3498db;
+}
+
+.value-card.valores:hover .value-icon {
+  color: #e74c3c;
 }
 
 /* Serviços */
@@ -330,16 +329,6 @@ body {
   color: var(--text-muted);
 }
 
-/* Botões */
-.btn-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: white;
-  padding: 0.8rem 2rem;
-  font-weight: bold;
-  transition: var(--transition);
-}
-
 .btn-primary:hover {
   background-color: var(--primary-dark);
   border-color: var(--primary-dark);
@@ -347,22 +336,6 @@ body {
   color: white;
 }
 
-/* Modal de Contato */
-.contact-info {
-  background-color: var(--bg-gray);
-  padding: 20px;
-  border-radius: 8px;
-  height: 100%;
-  border: 1px solid var(--border-color);
-}
-
-/* Formulário */
-.form-control {
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 10px 15px;
-  background-color: var(--bg-light);
-}
 
 .form-label {
   font-weight: 500;

@@ -90,3 +90,103 @@ button:focus-visible {
   text-decoration: none !important;
 
 }
+/* Estilos para o botão Fale Conosco no footer */
+.footer-contact-btn {
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* Estilos para o modal de contato */
+.contact-info h4 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-list li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.contact-list i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+  color: #0d6efd;
+}
+
+.social-media h5 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #6c757d;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #0d6efd;
+}
+/* Estilo para o botão Fale Conosco no footer */
+.site-footer .btn-outline-primary {
+  color: #fff;
+  border-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.site-footer .btn-outline-primary:hover {
+  background-color: #fff;
+  color: #0d6efd;
+}
+
+/* Estilos para o modal de contato */
+.contact-info h4 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-list li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.contact-list i {
+  margin-right: 10px;
+  color: #0d6efd;
+  font-size: 1.2rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #6c757d;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #0d6efd;
+} 
+
