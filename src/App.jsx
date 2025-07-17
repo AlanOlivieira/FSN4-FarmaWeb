@@ -2,7 +2,8 @@ import { Routes, Route, Outlet } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
-import Sobre from './pages/Sobre'; // Adicionei essa importação
+import Sobre from './pages/Sobre';
+import Contato from './pages/contato';  // Corrigido o caminho para Contato
 import Carrinho from './pages/Carrinho';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Suplementos from './pages/suplementos';
@@ -11,8 +12,7 @@ import Nutricao from './pages/nutricao';
 import Beleza from './pages/beleza';
 import Bebes from './pages/bebes';
 import Medicamentos from './pages/medicamentos';
-
-
+  
 function Layout() {
   return (
     <div className="site-wrap">
@@ -30,9 +30,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="sobre" element={<Sobre />} /> {/* Atualizei esta linha */}
-        <Route path="sobre" element={<h1 style={{ padding: '2rem' }}>Sobre</h1>} />
-        <Route path="contato" element={<h1 style={{ padding: '2rem' }}>Contato</h1>} />
+        <Route path="sobre" element={<Sobre />} />
+        <Route path="contato" element={<Contato />} /> {/* Atualizado para usar o componente Contato */}
         <Route path="categorias">
           <Route path="suplementos" element={<Suplementos/>} />
           <Route path="vitaminas" element={<Vitaminas/>} />
@@ -43,7 +42,6 @@ function App() {
         </Route>
         <Route path="carrinho" element={<Carrinho />} />
       </Route>
-      
     </Routes>
   );
 }
