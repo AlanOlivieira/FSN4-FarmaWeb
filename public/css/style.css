@@ -1141,3 +1141,11 @@ button {
   border: none;
   box-shadow: none;
 }
+.icons-btn.js-search-open {
+  border: none;
+  background: transparent;
+  outline: none;
+  box-shadow: none; /* remove sombra, se houver */
+  padding: 0; /* tira espaçamento extra */
+  cursor: pointer;
+}

@@ -12,6 +12,9 @@ import Nutricao from './pages/nutricao';
 import Beleza from './pages/beleza';
 import Bebes from './pages/bebes';
 import Medicamentos from './pages/medicamentos';
+import DetalheProduto from './pages/DetalheProduto';
+
+
   
 function Layout() {
   return (
@@ -42,6 +45,7 @@ function App() {
         </Route>
         <Route path="carrinho" element={<Carrinho />} />
       </Route>
+      <Route path="/produto/:id" element={<DetalheProduto />} />
     </Routes>
   );
 }

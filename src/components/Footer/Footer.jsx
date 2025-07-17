@@ -108,12 +108,13 @@ export default function Footer() {
                 <li className="email">contato@pharma.com.br</li>
                 <li>
                   <Button 
-                    variant="outline-primary" 
-                    onClick={handleShowContactModal}
-                    className="mt-3"
-                  >
-                    Fale Conosco
-                  </Button>
+                      variant="primary" 
+                      onClick={handleShowContactModal}
+                      className="mt-3"
+                    >
+                      Fale Conosco
+                    </Button>
+
                 </li>
               </ul>
             </div>

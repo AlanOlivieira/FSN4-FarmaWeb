@@ -23,7 +23,7 @@ export default function ProdutoCard({ produto }) {
       </div>
 
       <div className="card-body d-flex flex-column">
-        <h5 className="card-title">{produto.nome}</h5>
+        <h5 className="card-title"><strong>{produto.nome}</strong></h5>
         <p className="card-text" style={{ flexGrow: 1 }}>
           {produto.descricao}
         </p>

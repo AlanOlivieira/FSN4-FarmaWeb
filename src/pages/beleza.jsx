@@ -45,8 +45,8 @@ const [currentPage, setCurrentPage] = useState(0)
         ))}
       </div>
       <ReactPaginate
-        previousLabel={"Previous"}
-        nextLabel={"Next"}
+        previousLabel={"Anterior"}
+        nextLabel={"Proximo"}
         pageCount={pageCount}
         onPageChange={handlePageClick}
         containerClassName={"pagination"}

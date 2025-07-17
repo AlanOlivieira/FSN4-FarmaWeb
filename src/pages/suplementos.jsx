@@ -32,8 +32,8 @@ export default function Suplementos() {
         ))}
       </div>
       <ReactPaginate
-        previousLabel={"Previous"}
-        nextLabel={"Next"}
+        previousLabel={"Anterior"}
+        nextLabel={"Proximo"}
         pageCount={pageCount}
         onPageChange={handlePageClick}
         containerClassName={"pagination"}
