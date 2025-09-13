@@ -1,0 +1,30 @@
+.botao-favorito-container {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  line-height: 0;
+}
+.coracao-favorito {
+  font-size: 24px;
+  transition: all 0.2s ease-in-out; 
+}
+
+.coracao-favorito.inativo {
+  color: #a0a0a0; 
+  transition: all 0.2s ease-in-out; 
+}
+
+.coracao-favorito.ativo {
+  color: #e74c3c; 
+}
+
+.coracao-favorito.ativo {
+  color: #e74c3c; 
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: #e74c3c; 
+}
+
+.botao-favorito-container:hover .coracao-favorito {
+  transform: scale(1.1);
+}

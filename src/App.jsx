@@ -1,3 +1,4 @@
+import { FavoritosProvider } from './contexts/FavoritosContext';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -13,6 +14,8 @@ import Beleza from './pages/beleza';
 import Bebes from './pages/bebes';
 import Medicamentos from './pages/medicamentos';
 import DetalheProduto from './pages/DetalheProduto';
+import TelaVendas from './pages/TelaVendas';
+import ProdutosFavoritos from './pages/ProdutosFavoritos';
 
 
   
@@ -30,6 +33,7 @@ function Layout() {
 
 function App() {
   return (
+    <FavoritosProvider>
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
@@ -44,9 +48,12 @@ function App() {
           <Route path="medicamentos" element={<Medicamentos/>} />
         </Route>
         <Route path="carrinho" element={<Carrinho />} />
+        <Route path="vendas" element={<TelaVendas />} />
+        <Route path="favoritos" element={<ProdutosFavoritos />} />
       </Route>
       <Route path="/produto/:id" element={<DetalheProduto />} />
     </Routes>
+     </FavoritosProvider>
   );
 }
 

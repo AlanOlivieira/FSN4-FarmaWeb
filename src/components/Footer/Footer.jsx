@@ -95,6 +95,7 @@ export default function Footer() {
               <li><Link to="/dieta-nutricao">Dieta & Nutrição</Link></li>
               <li><Link to="/beleza">Cuidados e beleza</Link></li>
               <li><Link to="/baby">Cuidados para bebês</Link></li>
+              <li><Link to="/vendas">Tela de Vendas</Link></li>
             </ul>
           </div>
           <div className="col-md-6 col-lg-3">
