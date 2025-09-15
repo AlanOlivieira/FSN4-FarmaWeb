@@ -1145,7 +1145,10 @@ button {
   border: none;
   background: transparent;
   outline: none;
-  box-shadow: none; /* remove sombra, se houver */
-  padding: 0; /* tira espaçamento extra */
+  box-shadow: none; 
+  padding: 0; 
   cursor: pointer;
+}
+.search-results-container {
+  text-align: left;
 }

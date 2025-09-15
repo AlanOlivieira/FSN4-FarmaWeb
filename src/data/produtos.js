@@ -1,7 +1,16 @@
 
 const produtos = {
     medicamentos: [
-    { id: 1, nome: "Paracetamol 750mg", preco: 7.90, imagem: "/images/parecetamol1.webp", descricao: "Analgésico para febre e dores.", classificacao: "medicamentos", destaque: true },
+    {
+      id: 1,
+      nome: "Paracetamol 750mg",
+      preco: 7.90,
+      imagem: "/images/parecetamol1.webp",
+      imagensExtras: ["/images/paracetamol1.webp", "/images/ibuprofeno.webp"], //teste de imagens
+      descricao: "Analgésico para febre e dores.",
+      classificacao: "medicamentos",
+      destaque: true
+    },
     { id: 2, nome: "Ibuprofeno 600mg", preco: 12.50, imagem: "/images/ibuprofeno.webp", descricao: "Anti-inflamatório e analgésico.", classificacao: "medicamentos", destaque: false },
     { id: 3, nome: "Dipirona 1g", preco: 8.25, imagem: "/images/dipirona.webp", descricao: "Alívio rápido da dor.", classificacao: "medicamentos", destaque: false },
     { id: 4, nome: "Amoxicilina 500mg", preco: 78.90, imagem: "/images/amoxicilina.jpeg", descricao: "Antibiótico de amplo espectro.", classificacao: "medicamentos", destaque: false },

@@ -188,5 +188,8 @@ button:focus-visible {
 
 .social-icons a:hover {
   color: #0d6efd;
+}
+.search-results-container {
+  text-align: left;
 } 
 

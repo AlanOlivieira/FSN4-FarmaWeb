@@ -1,21 +1,53 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useCarrinho } from '../../contexts/CarrinhoContext';
+import { FaSearch } from 'react-icons/fa';
+import './Header.css';
 
 export default function Header() {
-
-  const { carrinho } = useCarrinho(); 
+  const { carrinho } = useCarrinho();
   const totalItens = carrinho.reduce((soma, item) => soma + item.quantidade, 0);
+
+  const [termoPesquisa, setTermoPesquisa] = useState('');
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    setIsSearchOpen(false);
+  }, [location]);
+
+  const handlePesquisa = (e) => {
+    e.preventDefault();
+    if (termoPesquisa.trim()) {
+      navigate(`/pesquisa?q=${termoPesquisa}`);
+      setTermoPesquisa('');
+      setIsSearchOpen(false);
+    }
+  };
+
   return (
     <div className="site-navbar py-2">
-      {/* barra de buscar!!! entaoooo... nao ta funcionando kkk*/}
-      <div className="search-wrap">
+      <div className={isSearchOpen ? 'search-wrap active' : 'search-wrap'}>
         <div className="container">
-          <button className="search-close js-search-close">
-            <span className="icon-close2"></span>
-          </button>
-          <form onSubmit={(e) => e.preventDefault()}>
-            <input type="text" className="form-control" placeholder="Pesquisar produto..." />
+          <form onSubmit={handlePesquisa} className="search-form-container">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Pesquisar produto..."
+              value={termoPesquisa}
+              onChange={(e) => setTermoPesquisa(e.target.value)}
+            />
+            <button type="submit" className="search-submit-button">
+              <FaSearch />
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsSearchOpen(false)}
+              className="search-close"
+            >
+              ✕
+            </button>
           </form>
         </div>
       </div>
@@ -35,6 +67,8 @@ export default function Header() {
               </Link>
             </div>
           </div>
+
+    
           <div className="main-nav d-none d-lg-block">
             <nav className="site-navigation text-right text-md-center" role="navigation">
               <ul className="site-menu js-clone-nav d-none d-lg-block">
@@ -58,10 +92,13 @@ export default function Header() {
           </div>
 
           <div className="icons">
-            <button className="icons-btn d-inline-block js-search-open">
-            <span className="icon-search"></span>
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="icons-btn d-inline-block js-search-open"
+            >
+              <span className="icon-search"></span>
             </button>
-             <Link to="/carrinho" className="icons-btn d-inline-block bag" style={{ position: 'relative' }}>
+            <Link to="/carrinho" className="icons-btn d-inline-block bag" style={{ position: 'relative' }}>
               <span className="icon-shopping-bag"></span>
               {totalItens > 0 && (
                 <span
