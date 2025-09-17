@@ -18,6 +18,8 @@ import TelaVendas from './pages/TelaVendas';
 import ProdutosFavoritos from './pages/ProdutosFavoritos';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import PaginaDePesquisa from './pages/PaginaDePesquisa';
+import FinalizacaoCompra from './pages/FinalizacaoCompra';
+import MeusPedidos from './pages/MeusPedidos';
 
 function Layout() {
   return (
@@ -40,18 +42,19 @@ function App() {
           <Route path="sobre" element={<Sobre />} />
           <Route path="contato" element={<Contato />} />
           <Route path="categorias">
-            <Route path="suplementos" element={<Suplementos/>} />
-            <Route path="vitaminas" element={<Vitaminas/>} />
-            <Route path="dieta-nutricao" element={<Nutricao/>} />
-            <Route path="beleza" element={<Beleza/>} />
-            <Route path="baby" element={<Bebes/>} />
-            <Route path="medicamentos" element={<Medicamentos/>} />
+            <Route path="suplementos" element={<Suplementos />} />
+            <Route path="vitaminas" element={<Vitaminas />} />
+            <Route path="dieta-nutricao" element={<Nutricao />} />
+            <Route path="beleza" element={<Beleza />} />
+            <Route path="baby" element={<Bebes />} />
+            <Route path="medicamentos" element={<Medicamentos />} />
           </Route>
           <Route path="carrinho" element={<Carrinho />} />
           <Route path="vendas" element={<TelaVendas />} />
           <Route path="favoritos" element={<ProdutosFavoritos />} />
-          
-          <Route path="pesquisa" element={<PaginaDePesquisa />} /> 
+          <Route path="pesquisa" element={<PaginaDePesquisa />} />
+          <Route path="finalizacao" element={<FinalizacaoCompra />} />
+          <Route path="meus-pedidos" element={<MeusPedidos />} />
         </Route>
 
         <Route path="/produto/:id" element={<DetalheProduto />} />

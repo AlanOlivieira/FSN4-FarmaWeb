@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useCarrinho } from "../contexts/CarrinhoContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Carrinho() {
@@ -12,9 +12,18 @@ export default function Carrinho() {
     total,
   } = useCarrinho();
 
-  
   const [hoverRemoverId, setHoverRemoverId] = useState(null);
   const [hoverFinalizar, setHoverFinalizar] = useState(false);
+
+  const navigate = useNavigate();
+
+  const finalizarCompra = () => {
+    if (carrinho.length === 0) {
+      alert("Seu carrinho está vazio!");
+      return;
+    }
+    navigate("/finalizacao", { state: { carrinho, total } });
+  };
 
   if (carrinho.length === 0) {
     return (
@@ -52,22 +61,25 @@ export default function Carrinho() {
                       Preço unitário: <strong>R$ {produto.preco.toFixed(2)}</strong>
                     </p>
                     <p className="card-text mb-1">
-                      Subtotal: <strong>R$ {(produto.preco * produto.quantidade).toFixed(2)}</strong>
+                      Subtotal:{" "}
+                      <strong>
+                        R$ {(produto.preco * produto.quantidade).toFixed(2)}
+                      </strong>
                     </p>
                     <div className="d-flex align-items-center mt-3">
                       <button
                         style={{
-                          width: '32px',
-                          height: '32px',
-                          backgroundColor: '#f8f9fa',
-                          border: '1px solid #ced4da',
-                          borderRadius: '4px',
-                          fontSize: '18px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          cursor: 'pointer',
-                          marginRight: '8px'
+                          width: "32px",
+                          height: "32px",
+                          backgroundColor: "#f8f9fa",
+                          border: "1px solid #ced4da",
+                          borderRadius: "4px",
+                          fontSize: "18px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          cursor: "pointer",
+                          marginRight: "8px",
                         }}
                         onClick={() => diminuirQuantidade(produto.id)}
                       >
@@ -76,10 +88,10 @@ export default function Carrinho() {
 
                       <span
                         style={{
-                          minWidth: '32px',
-                          textAlign: 'center',
-                          fontSize: '16px',
-                          display: 'inline-block'
+                          minWidth: "32px",
+                          textAlign: "center",
+                          fontSize: "16px",
+                          display: "inline-block",
                         }}
                       >
                         {produto.quantidade}
@@ -87,17 +99,17 @@ export default function Carrinho() {
 
                       <button
                         style={{
-                          width: '32px',
-                          height: '32px',
-                          backgroundColor: '#f8f9fa',
-                          border: '1px solid #ced4da',
-                          borderRadius: '4px',
-                          fontSize: '18px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          cursor: 'pointer',
-                          marginLeft: '8px'
+                          width: "32px",
+                          height: "32px",
+                          backgroundColor: "#f8f9fa",
+                          border: "1px solid #ced4da",
+                          borderRadius: "4px",
+                          fontSize: "18px",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          cursor: "pointer",
+                          marginLeft: "8px",
                         }}
                         onClick={() =>
                           adicionarProduto({
@@ -117,15 +129,17 @@ export default function Carrinho() {
                         onMouseEnter={() => setHoverRemoverId(produto.id)}
                         onMouseLeave={() => setHoverRemoverId(null)}
                         style={{
-                          backgroundColor: hoverRemoverId === produto.id ? '#fff' : '#e0181f',
-                          color: hoverRemoverId === produto.id ? '#e0181f' : '#fff',
-                          border: '2px solid #e0181f',
-                          padding: '6px 12px',
-                          borderRadius: '4px',
-                          cursor: 'pointer',
-                          fontSize: '14px',
-                          marginLeft: '16px',
-                          transition: 'all 0.3s ease'
+                          backgroundColor:
+                            hoverRemoverId === produto.id ? "#fff" : "#e0181f",
+                          color:
+                            hoverRemoverId === produto.id ? "#e0181f" : "#fff",
+                          border: "2px solid #e0181f",
+                          padding: "6px 12px",
+                          borderRadius: "4px",
+                          cursor: "pointer",
+                          fontSize: "14px",
+                          marginLeft: "16px",
+                          transition: "all 0.3s ease",
                         }}
                       >
                         Remover
@@ -144,10 +158,7 @@ export default function Carrinho() {
               <h4 className="card-title">Resumo da Compra</h4>
               <hr />
               {carrinho.map((item) => (
-                <div
-                  key={item.id}
-                  className="d-flex justify-content-between mb-2"
-                >
+                <div key={item.id} className="d-flex justify-content-between mb-2">
                   <span>
                     {item.nome} x {item.quantidade}
                   </span>
@@ -160,6 +171,7 @@ export default function Carrinho() {
                 <strong>R$ {total.toFixed(2)}</strong>
               </div>
               <button
+                onClick={finalizarCompra}
                 onMouseEnter={() => setHoverFinalizar(true)}
                 onMouseLeave={() => setHoverFinalizar(false)}
                 style={{
@@ -172,7 +184,7 @@ export default function Carrinho() {
                   borderRadius: "6px",
                   marginTop: "1rem",
                   cursor: "pointer",
-                  transition: "all 0.3s ease"
+                  transition: "all 0.3s ease",
                 }}
               >
                 Finalizar Compra

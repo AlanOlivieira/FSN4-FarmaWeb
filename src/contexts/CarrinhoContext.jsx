@@ -26,11 +26,13 @@ export function CarrinhoProvider({ children }) {
   function diminuirQuantidade(id) {
     setCarrinho((prev) =>
       prev
-        .map((p) =>
-          p.id === id ? { ...p, quantidade: p.quantidade - 1 } : p
-        )
-        .filter((p) => p.quantidade > 0) 
+        .map((p) => (p.id === id ? { ...p, quantidade: p.quantidade - 1 } : p))
+        .filter((p) => p.quantidade > 0)
     );
+  }
+
+  function limparCarrinho() {
+    setCarrinho([]);
   }
 
   const total = carrinho.reduce(
@@ -45,6 +47,7 @@ export function CarrinhoProvider({ children }) {
         adicionarProduto,
         removerProduto,
         diminuirQuantidade,
+        limparCarrinho,
         total,
       }}
     >
