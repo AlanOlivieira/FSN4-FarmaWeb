@@ -11,142 +11,1211 @@ const produtos = {
       classificacao: "medicamentos",
       destaque: true
     },
-    { id: 2, nome: "Ibuprofeno 600mg", preco: 12.50, imagem: "/images/ibuprofeno.webp", descricao: "Anti-inflamatório e analgésico.", classificacao: "medicamentos", destaque: false },
-    { id: 3, nome: "Dipirona 1g", preco: 8.25, imagem: "/images/dipirona.webp", descricao: "Alívio rápido da dor.", classificacao: "medicamentos", destaque: false },
-    { id: 4, nome: "Amoxicilina 500mg", preco: 78.90, imagem: "/images/amoxicilina.jpeg", descricao: "Antibiótico de amplo espectro.", classificacao: "medicamentos", destaque: false },
-    { id: 5, nome: "Omeprazol 20mg", preco: 9.90, imagem: "/images/Omeprazol.png", descricao: "Tratamento de gastrite e refluxo.", classificacao: "medicamentos", destaque: false },
-    { id: 6, nome: "Losartana 50mg", preco: 14.75, imagem: "/images/Losartana.webp", descricao: "Controle da pressão arterial.", classificacao: "medicamentos", destaque: false },
-    { id: 7, nome: "Captopril 25mg", preco: 6.80, imagem: "/images/capitopril.webp", descricao: "Redução da pressão arterial.", classificacao: "medicamentos", destaque: true },
-    { id: 8, nome: "Azitromicina 500mg", preco: 42.00, imagem: "/images/Azitromicina_03_comp.png", descricao: "Antibiótico para infecções respiratórias.", classificacao: "medicamentos", destaque: true },
-    { id: 9, nome: "Prednisona 20mg", preco: 13.50, imagem: "/images/Prednisona.webp", descricao: "Anti-inflamatório corticosteroide.", classificacao: "medicamentos", destaque: true },
-    { id: 10, nome: "Cetirizina 10mg", preco: 10.90, imagem: "/images/Cetirizina.webp", descricao: "Alívio de sintomas alérgicos.", classificacao: "medicamentos", destaque: true },
-    { id: 11, nome: "Metformina 850mg", preco: 7.99, imagem: "/images/Metformina.webp", descricao: "Controle do diabetes tipo 2.", classificacao: "medicamentos", destaque: true },
-    { id: 12, nome: "Lorazepam 2mg", preco: 25.50, imagem: "/images/Lorazepam.webp", descricao: "Ansiolítico e indutor do sono.", classificacao: "medicamentos", destaque: false },
-    { id: 13, nome: "Sinvastatina 20mg", preco: 11.75, imagem: "/images/Sinvastatina.webp", descricao: "Redução do colesterol.", classificacao: "medicamentos", destaque: false },
-    { id: 14, nome: "Fluoxetina 20mg", preco: 19.90, imagem: "/images/fluxetina.webp", descricao: "Tratamento de depressão.", classificacao: "medicamentos", destaque: false },
-    { id: 15, nome: "Ranitidina 150mg", preco: 13.90, imagem: "/images/Ranitidina.webp", descricao: "Tratamento de úlceras gástricas.", classificacao: "medicamentos", destaque: false },
-    { id: 16, nome: "Nimesulida 100mg", preco: 6.90, imagem: "/images/Nimesulida.webp", descricao: "Alívio de dores e inflamações.", classificacao: "medicamentos", destaque: false },
-    { id: 17, nome: "Clonazepam 2mg", preco: 23.40, imagem: "/images/Clonazepam.png", descricao: "Tratamento de convulsões e ansiedade.", classificacao: "medicamentos", destaque: false },
-    { id: 18, nome: "Hidroclorotiazida 25mg", preco: 8.40, imagem: "/images/Hidroclorotiazida.webp", descricao: "Diurético para hipertensão.", classificacao: "medicamentos", destaque: false },
-    { id: 19, nome: "Sertralina 50mg", preco: 29.90, imagem: "/images/sertralina.jpg", descricao: "Antidepressivo para ansiedade e depressão.", classificacao: "medicamentos", destaque: true },
-    { id: 20, nome: "Diclofenaco 50mg", preco: 9.60, imagem: "/images/Diclofenaco.webp", descricao: "Anti-inflamatório para dores musculares.", classificacao: "medicamentos", destaque: false }
+     {
+      id: 2,
+      nome: "Ibuprofeno 600mg",
+      preco: 12.50,
+      imagem: "/images/ibuprofeno.webp",
+      imagensExtras: [],
+      descricao: "Anti-inflamatório e analgésico.",
+      classificacao: "medicamentos",
+      destaque: false
+    },
+    {
+      id: 3,
+      nome: "Dipirona 1g",
+      preco: 8.25,
+      imagem: "/images/dipirona.webp",
+      imagensExtras: [],
+      descricao: "Alívio rápido da dor.",
+      classificacao: "medicamentos",
+      destaque: false
+    },
+    {
+      id: 4,
+      nome: "Amoxicilina 500mg",
+      preco: 78.90,
+      imagem: "/images/amoxicilina.jpeg",
+      imagensExtras: [],
+      descricao: "Antibiótico de amplo espectro.",
+      classificacao: "medicamentos",
+      destaque: false
+    },
+    {
+      id: 5,
+      nome: "Omeprazol 20mg",
+      preco: 9.90,
+      imagem: "/images/Omeprazol.png",
+      imagensExtras: [],
+      descricao: "Tratamento de gastrite e refluxo.",
+      classificacao: "medicamentos",
+      destaque: false
+    },
+    {
+      id: 6,
+      nome: "Losartana 50mg",
+      preco: 14.75,
+      imagem: "/images/Losartana.webp",
+      imagensExtras: [],
+      descricao: "Controle da pressão arterial.",
+      classificacao: "medicamentos",
+      destaque: false
+    },
+    {
+      id: 7,
+      nome: "Captopril 25mg",
+      preco: 6.80,
+      imagem: "/images/capitopril.webp",
+      imagensExtras: [],
+      descricao: "Redução da pressão arterial.",
+      classificacao: "medicamentos",
+      destaque: true
+    },
+    {
+      id: 8,
+      nome: "Azitromicina 500mg",
+      preco: 42.00,
+      imagem: "/images/Azitromicina_03_comp.png",
+      imagensExtras: [],
+      descricao: "Antibiótico para infecções respiratórias.",
+      classificacao: "medicamentos",
+      destaque: true
+    },
+    {
+      id: 9,
+      nome: "Prednisona 20mg",
+      preco: 13.50,
+      imagem: "/images/Prednisona.webp",
+      imagensExtras: [],
+      descricao: "Anti-inflamatório corticosteroide.",
+      classificacao: "medicamentos",
+      destaque: true
+    },
+    {
+      id: 10,
+      nome: "Cetirizina 10mg",
+      preco: 10.90,
+      imagem: "/images/Cetirizina.webp",
+      imagensExtras: [],
+      descricao: "Alívio de sintomas alérgicos.",
+      classificacao: "medicamentos",
+      destaque: true
+    },
+    {
+      id: 11,
+      nome: "Metformina 850mg",
+      preco: 7.99,
+      imagem: "/images/Metformina.webp",
+      imagensExtras: [],
+      descricao: "Controle do diabetes tipo 2.",
+      classificacao: "medicamentos",
+      destaque: true
+    },
+    {
+      id: 12,
+      nome: "Lorazepam 2mg",
+      preco: 25.50,
+      imagem: "/images/Lorazepam.webp",
+      imagensExtras: [],
+      descricao: "Ansiolítico e indutor do sono.",
+      classificacao: "medicamentos",
+      destaque: false
+    },
+    {
+      id: 13,
+      nome: "Sinvastatina 20mg",
+      preco: 11.75,
+      imagem: "/images/Sinvastatina.webp",
+      imagensExtras: [],
+      descricao: "Redução do colesterol.",
+      classificacao: "medicamentos",
+      destaque: false
+    },
+    {
+      id: 14,
+      nome: "Fluoxetina 20mg",
+      preco: 19.90,
+      imagem: "/images/fluxetina.webp",
+      imagensExtras: [],
+      descricao: "Tratamento de depressão.",
+      classificacao: "medicamentos",
+      destaque: false
+    },
+    {
+      id: 15,
+      nome: "Ranitidina 150mg",
+      preco: 13.90,
+      imagem: "/images/Ranitidina.webp",
+      imagensExtras: [],
+      descricao: "Tratamento de úlceras gástricas.",
+      classificacao: "medicamentos",
+      destaque: false
+    },
+    {
+      id: 16,
+      nome: "Nimesulida 100mg",
+      preco: 6.90,
+      imagem: "/images/Nimesulida.webp",
+      imagensExtras: [],
+      descricao: "Alívio de dores e inflamações.",
+      classificacao: "medicamentos",
+      destaque: false
+    },
+    {
+      id: 17,
+      nome: "Clonazepam 2mg",
+      preco: 23.40,
+      imagem: "/images/Clonazepam.png",
+      imagensExtras: [],
+      descricao: "Tratamento de convulsões e ansiedade.",
+      classificacao: "medicamentos",
+      destaque: false
+    },
+    {
+      id: 18,
+      nome: "Hidroclorotiazida 25mg",
+      preco: 8.40,
+      imagem: "/images/Hidroclorotiazida.webp",
+      imagensExtras: [],
+      descricao: "Diurético para hipertensão.",
+      classificacao: "medicamentos",
+      destaque: false
+    },
+    {
+      id: 19,
+      nome: "Sertralina 50mg",
+      preco: 29.90,
+      imagem: "/images/sertralina.jpg",
+      imagensExtras: [],
+      descricao: "Antidepressivo para ansiedade e depressão.",
+      classificacao: "medicamentos",
+      destaque: true
+    },
+    {
+      id: 20,
+      nome: "Diclofenaco 50mg",
+      preco: 9.60,
+      imagem: "/images/Diclofenaco.webp",
+      imagensExtras: [],
+      descricao: "Anti-inflamatório para dores musculares.",
+      classificacao: "medicamentos",
+      destaque: false
+    }
   ],
 
   suplementos: [
-    { id: 101, nome: "Creatina Monohidratada 300g", preco: 89.90, imagem: "https://paguemenos.vtexassets.com/arquivos/ids/945643-1000-auto?v=638654636166700000&width=800&height=auto&aspect=true", descricao: "Aumenta força e desempenho em treinos.", classificacao: "suplementos", destaque: false },
-    { id: 102, nome: "Glutamina 150g", preco: 69.90, imagem: "https://paguemenos.vtexassets.com/arquivos/ids/929620-800-auto?v=638616778223230000&width=800&height=auto&aspect=true", descricao: "Recuperação muscular e imunidade.", classificacao: "suplementos", destaque: true },
-    { id: 103, nome: "BCAA 4:1:1 200g", preco: 74.90, imagem: "https://paguemenos.vtexassets.com/arquivos/ids/926395-800-auto?v=638611547743100000&width=800&height=auto&aspect=true", descricao: "Aminoácidos para recuperação muscular.", classificacao: "suplementos", destaque: false },
-    { id: 104, nome: "Termogênico Hardcore 60 caps", preco: 49.90, imagem: "https://paguemenos.vtexassets.com/arquivos/ids/760951-800-auto?v=638375654868300000&width=800&height=auto&aspect=true", descricao: "Aumenta energia e queima de gordura.", classificacao: "suplementos", destaque: false },
-    { id: 105, nome: "ZMA 60 cápsulas", preco: 39.50, imagem: "https://paguemenos.vtexassets.com/arquivos/ids/901697-800-auto?v=638548498954330000&width=800&height=auto&aspect=true", descricao: "Auxilia na recuperação e força.", classificacao: "suplementos", destaque: false },
-    { id: 106, nome: "HMB 1000mg", preco: 56.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4713042.webp&w=828&q=75", descricao: "Preserva massa muscular.", classificacao: "suplementos", destaque: false },
-    { id: 107, nome: "Beta Alanina 150g", preco: 48.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4523167.webp&w=828&q=75", descricao: "Melhora resistência e combate fadiga.", classificacao: "suplementos", destaque: false },
-    { id: 108, nome: "Cafeína 210mg", preco: 22.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F5205585.webp&w=828&q=75", descricao: "Aumenta energia e foco mental.", classificacao: "suplementos", destaque: false },
-    { id: 109, nome: "L-Carnitina 2000mg", preco: 46.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F5302442.webp&w=828&q=75", descricao: "Ajuda na queima de gordura.", classificacao: "suplementos", destaque: false },
-    { id: 110, nome: "Arginina 500mg", preco: 35.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3486660.webp&w=828&q=75", descricao: "Vasodilatação e rendimento físico.", classificacao: "suplementos", destaque: false },
-    { id: 111, nome: "Coenzima Q10 100mg", preco: 52.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3836422.webp&w=828&q=75", descricao: "Suporte cardiovascular e energia celular.", classificacao: "suplementos", destaque: false },
-    { id: 112, nome: "Palatinose 300g", preco: 66.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4679338.webp&w=828&q=75", descricao: "Fornecimento gradual de energia.", classificacao: "suplementos", destaque: false },
-    { id: 113, nome: "Tribulus Terrestris 750mg", preco: 44.90, imagem: "https://farmaciaindiana.vtexassets.com/arquivos/ids/279096-800-800?v=638210701437430000&width=800&height=800&aspect=true", descricao: "Suporte hormonal natural.", classificacao: "suplementos", destaque: false },
-    { id: 114, nome: "D-Ribose 150g", preco: 59.00, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4523279.webp&w=828&q=75", descricao: "Energia celular para o coração e músculos.", classificacao: "suplementos", destaque: false },
-    { id: 115, nome: "Waxy Maize 1kg", preco: 42.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4440654.webp&w=828&q=75", descricao: "Carboidrato de absorção rápida.", classificacao: "suplementos", destaque: false },
-    { id: 116, nome: "Picolinato de Cromo", preco: 28.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3520485.webp&w=828&q=75", descricao: "Regula insulina e apetite.", classificacao: "suplementos", destaque: false },
-    { id: 117, nome: "Spirulina em pó", preco: 41.00, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F5081215.webp&w=828&q=75", descricao: "Fonte natural de proteína vegetal.", classificacao: "suplementos", destaque: false },
-    { id: 118, nome: "Maca Peruana 500mg", preco: 34.50, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F14761927.webp&w=828&q=75", descricao: "Aumenta energia e libido.", classificacao: "suplementos", destaque: true },
-    { id: 119, nome: "Ginseng Panax 400mg", preco: 37.90, imagem: "https://images.tcdn.com.br/img/img_prod/883367/ginseng_panax_400mg_30_doses_6806_1_958b4e99fc1e5644712bd895eabc6047.jpg", descricao: "Melhora desempenho físico e mental.", classificacao: "suplementos", destaque: false },
-    { id: 120, nome: "Óleo de Cártamo 1000mg", preco: 36.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F10849860.webp&w=828&q=75", descricao: "Auxilia no controle de peso.", classificacao: "suplementos", destaque: false }
-  ],
+  { 
+    id: 101, 
+    nome: "Creatina Monohidratada 300g", 
+    preco: 89.90, 
+    imagem: "https://paguemenos.vtexassets.com/arquivos/ids/945643-1000-auto?v=638654636166700000&width=800&height=auto&aspect=true", 
+    imagensExtras: [], 
+    descricao: "Aumenta força e desempenho em treinos.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 102, 
+    nome: "Glutamina 150g", 
+    preco: 69.90, 
+    imagem: "https://paguemenos.vtexassets.com/arquivos/ids/929620-800-auto?v=638616778223230000&width=800&height=auto&aspect=true", 
+    imagensExtras: [], 
+    descricao: "Recuperação muscular e imunidade.", 
+    classificacao: "suplementos", 
+    destaque: true 
+  },
+  { 
+    id: 103, 
+    nome: "BCAA 4:1:1 200g", 
+    preco: 74.90, 
+    imagem: "https://paguemenos.vtexassets.com/arquivos/ids/926395-800-auto?v=638611547743100000&width=800&height=auto&aspect=true", 
+    imagensExtras: [], 
+    descricao: "Aminoácidos para recuperação muscular.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 104, 
+    nome: "Termogênico Hardcore 60 caps", 
+    preco: 49.90, 
+    imagem: "https://paguemenos.vtexassets.com/arquivos/ids/760951-800-auto?v=638375654868300000&width=800&height=auto&aspect=true", 
+    imagensExtras: [], 
+    descricao: "Aumenta energia e queima de gordura.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 105, 
+    nome: "ZMA 60 cápsulas", 
+    preco: 39.50, 
+    imagem: "https://paguemenos.vtexassets.com/arquivos/ids/901697-800-auto?v=638548498954330000&width=800&height=auto&aspect=true", 
+    imagensExtras: [], 
+    descricao: "Auxilia na recuperação e força.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 106, 
+    nome: "HMB 1000mg", 
+    preco: 56.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4713042.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Preserva massa muscular.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 107, 
+    nome: "Beta Alanina 150g", 
+    preco: 48.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4523167.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Melhora resistência e combate fadiga.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 108, 
+    nome: "Cafeína 210mg", 
+    preco: 22.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F5205585.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Aumenta energia e foco mental.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 109, 
+    nome: "L-Carnitina 2000mg", 
+    preco: 46.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F5302442.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Ajuda na queima de gordura.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 110, 
+    nome: "Arginina 500mg", 
+    preco: 35.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3486660.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Vasodilatação e rendimento físico.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+    { 
+    id: 111, 
+    nome: "Coenzima Q10 100mg", 
+    preco: 52.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3836422.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Suporte cardiovascular e energia celular.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 112, 
+    nome: "Palatinose 300g", 
+    preco: 66.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4679338.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Fornecimento gradual de energia.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 113, 
+    nome: "Tribulus Terrestris 750mg", 
+    preco: 44.90, 
+    imagem: "https://farmaciaindiana.vtexassets.com/arquivos/ids/279096-800-800?v=638210701437430000&width=800&height=800&aspect=true", 
+    imagensExtras: [], 
+    descricao: "Suporte hormonal natural.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 114, 
+    nome: "D-Ribose 150g", 
+    preco: 59.00, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4523279.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Energia celular para o coração e músculos.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 115, 
+    nome: "Waxy Maize 1kg", 
+    preco: 42.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4440654.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Carboidrato de absorção rápida.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 116, 
+    nome: "Picolinato de Cromo", 
+    preco: 28.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3520485.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Regula insulina e apetite.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 117, 
+    nome: "Spirulina em pó", 
+    preco: 41.00, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F5081215.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Fonte natural de proteína vegetal.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 118, 
+    nome: "Maca Peruana 500mg", 
+    preco: 34.50, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F14761927.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Aumenta energia e libido.", 
+    classificacao: "suplementos", 
+    destaque: true 
+  },
+  { 
+    id: 119, 
+    nome: "Ginseng Panax 400mg", 
+    preco: 37.90, 
+    imagem: "https://images.tcdn.com.br/img/img_prod/883367/ginseng_panax_400mg_30_doses_6806_1_958b4e99fc1e5644712bd895eabc6047.jpg", 
+    imagensExtras: [], 
+    descricao: "Melhora desempenho físico e mental.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  },
+  { 
+    id: 120, 
+    nome: "Óleo de Cártamo 1000mg", 
+    preco: 36.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F10849860.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Auxilia no controle de peso.", 
+    classificacao: "suplementos", 
+    destaque: false 
+  }
+],
 
   vitaminas: [
-    { id: 201, nome: "Vitamina C 1g", preco: 24.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3709499.webp&w=828&q=75", descricao: "Fortalece o sistema imune.", classificacao: "vitaminas", destaque: true },
-    { id: 202, nome: "Vitamina D3 2000UI", preco: 32.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F12233762.webp&w=828&q=75", descricao: "Importante para ossos e imunidade.", classificacao: "vitaminas", destaque: false },
-    { id: 203, nome: "Vitamina A", preco: 19.90, imagem: "https://m.media-amazon.com/images/I/51BSnH1FAkL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Auxilia na visão e imunidade.", classificacao: "vitaminas", destaque: false },
-    { id: 204, nome: "Vitamina E", preco: 22.90, imagem: "https://m.media-amazon.com/images/I/51-jugX5AYL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Antioxidante que protege as células.", classificacao: "vitaminas", destaque: false },
-    { id: 205, nome: "Vitamina K2", preco: 36.90, imagem: "https://m.media-amazon.com/images/I/61qBqOFUhzL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Ajuda na coagulação e ossos.", classificacao: "vitaminas", destaque: false },
-    { id: 206, nome: "Vitamina B1", preco: 14.90, imagem: "https://m.media-amazon.com/images/I/61ZGg1No5UL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Auxilia no metabolismo energético.", classificacao: "vitaminas", destaque: false },
-    { id: 207, nome: "Vitamina B2", preco: 15.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F6848236.webp&w=828&q=75", descricao: "Importante para saúde da pele e olhos.", classificacao: "vitaminas", destaque: false },
-    { id: 208, nome: "Vitamina B3", preco: 16.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4140913.webp&w=828&q=75", descricao: "Contribui para metabolismo de energia.", classificacao: "vitaminas", destaque: false },
-    { id: 209, nome: "Vitamina B5", preco: 17.90, imagem: "https://m.media-amazon.com/images/I/61Eeu82aKrL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Ajuda na produção de hormônios.", classificacao: "vitaminas", destaque: false },
-    { id: 210, nome: "Vitamina B6", preco: 18.90, imagem: "https://m.media-amazon.com/images/I/51O+5vChRdL._AC_SY300_SX300_QL70_ML2_.jpg", descricao: "Importante para o cérebro e nervos.", classificacao: "vitaminas", destaque: false },
-    { id: 211, nome: "Vitamina B7 (Biotina)", preco: 26.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4700056.webp&w=828&q=75", descricao: "Boa para unhas e cabelos.", classificacao: "vitaminas", destaque: false },
-    { id: 212, nome: "Vitamina B9 (Ácido Fólico)", preco: 20.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F5855967.webp&w=828&q=75", descricao: "Importante na gestação.", classificacao: "vitaminas", destaque: true },
-    { id: 213, nome: "Vitamina B12", preco: 21.90, imagem: "https://m.media-amazon.com/images/I/61mh6xRR5mL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Essencial para sangue e sistema nervoso.", classificacao: "vitaminas", destaque: false },
-    { id: 214, nome: "Vitamina C com Zinco", preco: 28.90, imagem: "https://m.media-amazon.com/images/I/61oz1MQvxcL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Reforço duplo de imunidade.", classificacao: "vitaminas", destaque: false },
-    { id: 215, nome: "Multivitamínico Feminino", preco: 36.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F11084770.webp&w=828&q=75", descricao: "Suporte completo para mulheres.", classificacao: "vitaminas", destaque: false },
-    { id: 216, nome: "Multivitamínico Masculino", preco: 36.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F13314403.webp&w=828&q=75", descricao: "Saúde e disposição para homens.", classificacao: "vitaminas", destaque: false },
-    { id: 217, nome: "Vitamina Infantil Gomas", preco: 31.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F13936738.webp&w=828&q=75", descricao: "Vitaminas para crianças.", classificacao: "vitaminas", destaque: false },
-    { id: 218, nome: "Vitamina D+K", preco: 35.90, imagem: "https://m.media-amazon.com/images/I/61Y8Q64d9nL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Fortalece ossos e imunidade.", classificacao: "vitaminas", destaque: false },
-    { id: 219, nome: "Vitamina C Kids", preco: 18.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3537404.webp&w=828&q=75", descricao: "Reforço infantil para imunidade.", classificacao: "vitaminas", destaque: false },
-    { id: 220, nome: "Vitamina para Gestantes", preco: 42.00, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F15390905.webp&w=828&q=75", descricao: "Com ácido fólico e ferro.", classificacao: "vitaminas", destaque: true }
+  { 
+    id: 201, 
+    nome: "Vitamina C 1g", 
+    preco: 24.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3709499.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Fortalece o sistema imune.", 
+    classificacao: "vitaminas", 
+    destaque: true 
+  },
+  { 
+    id: 202, 
+    nome: "Vitamina D3 2000UI", 
+    preco: 32.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F12233762.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Importante para ossos e imunidade.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 203, 
+    nome: "Vitamina A", 
+    preco: 19.90, 
+    imagem: "https://m.media-amazon.com/images/I/51BSnH1FAkL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Auxilia na visão e imunidade.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 204, 
+    nome: "Vitamina E", 
+    preco: 22.90, 
+    imagem: "https://m.media-amazon.com/images/I/51-jugX5AYL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Antioxidante que protege as células.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 205, 
+    nome: "Vitamina K2", 
+    preco: 36.90, 
+    imagem: "https://m.media-amazon.com/images/I/61qBqOFUhzL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Ajuda na coagulação e ossos.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 206, 
+    nome: "Vitamina B1", 
+    preco: 14.90, 
+    imagem: "https://m.media-amazon.com/images/I/61ZGg1No5UL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Auxilia no metabolismo energético.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 207, 
+    nome: "Vitamina B2", 
+    preco: 15.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F6848236.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Importante para saúde da pele e olhos.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 208, 
+    nome: "Vitamina B3", 
+    preco: 16.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4140913.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Contribui para metabolismo de energia.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 209, 
+    nome: "Vitamina B5", 
+    preco: 17.90, 
+    imagem: "https://m.media-amazon.com/images/I/61Eeu82aKrL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Ajuda na produção de hormônios.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 210, 
+    nome: "Vitamina B6", 
+    preco: 18.90, 
+    imagem: "https://m.media-amazon.com/images/I/51O+5vChRdL._AC_SY300_SX300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Importante para o cérebro e nervos.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 211, 
+    nome: "Vitamina B7 (Biotina)", 
+    preco: 26.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4700056.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Boa para unhas e cabelos.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 212, 
+    nome: "Vitamina B9 (Ácido Fólico)", 
+    preco: 20.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F5855967.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Importante na gestação.", 
+    classificacao: "vitaminas", 
+    destaque: true 
+  },
+  { 
+    id: 213, 
+    nome: "Vitamina B12", 
+    preco: 21.90, 
+    imagem: "https://m.media-amazon.com/images/I/61mh6xRR5mL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Essencial para sangue e sistema nervoso.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 214, 
+    nome: "Vitamina C com Zinco", 
+    preco: 28.90, 
+    imagem: "https://m.media-amazon.com/images/I/61oz1MQvxcL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Reforço duplo de imunidade.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 215, 
+    nome: "Multivitamínico Feminino", 
+    preco: 36.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F11084770.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Suporte completo para mulheres.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 216, 
+    nome: "Multivitamínico Masculino", 
+    preco: 36.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F13314403.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Saúde e disposição para homens.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 217, 
+    nome: "Vitamina Infantil Gomas", 
+    preco: 31.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F13936738.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Vitaminas para crianças.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 218, 
+    nome: "Vitamina D+K", 
+    preco: 35.90, 
+    imagem: "https://m.media-amazon.com/images/I/61Y8Q64d9nL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Fortalece ossos e imunidade.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 219, 
+    nome: "Vitamina C Kids", 
+    preco: 18.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3537404.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Reforço infantil para imunidade.", 
+    classificacao: "vitaminas", 
+    destaque: false 
+  },
+  { 
+    id: 220, 
+    nome: "Vitamina para Gestantes", 
+    preco: 42.00, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F15390905.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Com ácido fólico e ferro.", 
+    classificacao: "vitaminas", 
+    destaque: true 
+  }
 ],
 
   nutricao: [
-    { id: 301, nome: "Whey Protein Concentrado 900g", preco: 129.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F12039409.webp&w=828&q=75", descricao: "Suplemento proteico para ganho muscular.", classificacao: "nutricao", destaque: true },
-    { id: 302, nome: "Aveia em Flocos Finos 1kg", preco: 9.90, imagem: "https://m.media-amazon.com/images/I/71YIQ1YFIYL.__AC_SY300_SX300_QL70_ML2_.jpg", descricao: "Fonte de fibras para o café da manhã.", classificacao: "nutricao", destaque: false },
-    { id: 303, nome: "Pasta de Amendoim Integral 1kg", preco: 23.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4086828.webp&w=828&q=75", descricao: "Fonte de gordura boa e energia.", classificacao: "nutricao", destaque: false },
-    { id: 304, nome: "Óleo de Coco Extra Virgem 200ml", preco: 19.90, imagem: "https://m.media-amazon.com/images/I/71foXFYRu6L.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Gordura saudável para cozinhar ou suplementar.", classificacao: "nutricao", destaque: false },
-    { id: 305, nome: "Granola Tradicional 500g", preco: 12.90, imagem: "https://m.media-amazon.com/images/I/51dCwJwobXL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Mistura de cereais e frutas para energia.", classificacao: "nutricao", destaque: false },
-    { id: 306, nome: "Leite de Amêndoas 1L", preco: 16.90, imagem: "https://m.media-amazon.com/images/I/51E-PmfWX0L.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Alternativa vegetal ao leite tradicional.", classificacao: "nutricao", destaque: false },
-    { id: 307, nome: "Mix de Castanhas 150g", preco: 18.90, imagem: "https://m.media-amazon.com/images/I/61Bfn15MdjL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Lanche saudável rico em gorduras boas.", classificacao: "nutricao", destaque: false },
-    { id: 308, nome: "Isotônico Natural 500ml", preco: 6.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3875571.webp&w=828&q=75", descricao: "Reposição de eletrólitos e hidratação.", classificacao: "nutricao", destaque: false },
-    { id: 309, nome: "Chia em Sementes 250g", preco: 10.50, imagem: "https://m.media-amazon.com/images/I/51HY-sWiHWL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Fonte de ômega-3 e fibras.", classificacao: "nutricao", destaque: false },
-    { id: 310, nome: "Linhaça Dourada 200g", preco: 9.40, imagem: "https://m.media-amazon.com/images/I/71cLD7ZSIkL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Melhora o trânsito intestinal.", classificacao: "nutricao", destaque: false },
-    { id: 311, nome: "Suco Verde Detox 1L", preco: 11.90, imagem: "https://m.media-amazon.com/images/I/51mAQEdw71L.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Bebida funcional com ingredientes naturais.", classificacao: "nutricao", destaque: false },
-    { id: 312, nome: "Barra de Proteína 60g", preco: 7.50, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F15319843.webp&w=828&q=75", descricao: "Snack com alto teor de proteínas.", classificacao: "nutricao", destaque: false },
-    { id: 313, nome: "Farinha de Banana Verde 200g", preco: 14.90, imagem: "https://m.media-amazon.com/images/I/71gnrAhFt4L.__AC_SY300_SX300_QL70_ML2_.jpg", descricao: "Ajuda no controle glicêmico e saciedade.", classificacao: "nutricao", destaque: false },
-    { id: 314, nome: "Bebida de Soja com Cacau 1L", preco: 7.90, imagem: "https://m.media-amazon.com/images/I/51kAfklL8HL.__AC_SY300_SX300_QL70_ML2_.jpg", descricao: "Alternativa nutritiva ao achocolatado.", classificacao: "nutricao", destaque: false },
-    { id: 315, nome: "Tofu 500g", preco: 17.90, imagem: "https://storage.moovin.store/main/e89978aa-2a3d-406b-aad5-16ca7b814d24/c9920d41-0348-44ff-bfa0-b4cbb2b98cbf-2.jpeg?v=1738245850&ims=fit-in/500x/filters:fill(FFF)", descricao: "Fonte vegetal de proteína derivada da soja.", classificacao: "nutricao", destaque: false },
-    { id: 316, nome: "Arroz Integral 1kg", preco: 6.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F15168608.webp&w=828&q=75", descricao: "Fonte de energia com fibras.", classificacao: "nutricao", destaque: false },
-    { id: 317, nome: "Macarrão de Grão-de-Bico 500g", preco: 13.90, imagem: "https://m.media-amazon.com/images/I/71x8MH7o7FL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Rico em proteínas e sem glúten.", classificacao: "nutricao", destaque: false },
-    { id: 318, nome: "Água de Coco 1L", preco: 7.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3875857.webp&w=828&q=75", descricao: "Hidratação natural com eletrólitos.", classificacao: "nutricao", destaque: false },
-    { id: 319, nome: "Mel Puro 500g", preco: 18.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3876595.webp&w=828&q=75", descricao: "Fonte natural de energia e antioxidantes.", classificacao: "nutricao", destaque: false },
-    { id: 320, nome: "Cacau em Pó 100% 200g", preco: 21.90, imagem: "https://m.media-amazon.com/images/I/71m0h-J2SaL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Rico em antioxidantes e sem açúcar.", classificacao: "nutricao", destaque: false }
-    ],
+  { 
+    id: 301, 
+    nome: "Whey Protein Concentrado 900g", 
+    preco: 129.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F12039409.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Suplemento proteico para ganho muscular.", 
+    classificacao: "nutricao", 
+    destaque: true 
+  },
+  { 
+    id: 302, 
+    nome: "Aveia em Flocos Finos 1kg", 
+    preco: 9.90, 
+    imagem: "https://m.media-amazon.com/images/I/71YIQ1YFIYL.__AC_SY300_SX300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Fonte de fibras para o café da manhã.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 303, 
+    nome: "Pasta de Amendoim Integral 1kg", 
+    preco: 23.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F4086828.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Fonte de gordura boa e energia.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 304, 
+    nome: "Óleo de Coco Extra Virgem 200ml", 
+    preco: 19.90, 
+    imagem: "https://m.media-amazon.com/images/I/71foXFYRu6L.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Gordura saudável para cozinhar ou suplementar.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 305, 
+    nome: "Granola Tradicional 500g", 
+    preco: 12.90, 
+    imagem: "https://m.media-amazon.com/images/I/51dCwJwobXL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Mistura de cereais e frutas para energia.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 306, 
+    nome: "Leite de Amêndoas 1L", 
+    preco: 16.90, 
+    imagem: "https://m.media-amazon.com/images/I/51E-PmfWX0L.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Alternativa vegetal ao leite tradicional.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 307, 
+    nome: "Mix de Castanhas 150g", 
+    preco: 18.90, 
+    imagem: "https://m.media-amazon.com/images/I/61Bfn15MdjL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Lanche saudável rico em gorduras boas.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 308, 
+    nome: "Isotônico Natural 500ml", 
+    preco: 6.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3875571.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Reposição de eletrólitos e hidratação.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 309, 
+    nome: "Chia em Sementes 250g", 
+    preco: 10.50, 
+    imagem: "https://m.media-amazon.com/images/I/51HY-sWiHWL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Fonte de ômega-3 e fibras.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 310, 
+    nome: "Linhaça Dourada 200g", 
+    preco: 9.40, 
+    imagem: "https://m.media-amazon.com/images/I/71cLD7ZSIkL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Melhora o trânsito intestinal.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 311, 
+    nome: "Suco Verde Detox 1L", 
+    preco: 11.90, 
+    imagem: "https://m.media-amazon.com/images/I/51mAQEdw71L.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Bebida funcional com ingredientes naturais.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 312, 
+    nome: "Barra de Proteína 60g", 
+    preco: 7.50, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F15319843.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Snack com alto teor de proteínas.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 313, 
+    nome: "Farinha de Banana Verde 200g", 
+    preco: 14.90, 
+    imagem: "https://m.media-amazon.com/images/I/71gnrAhFt4L.__AC_SY300_SX300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Ajuda no controle glicêmico e saciedade.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 314, 
+    nome: "Bebida de Soja com Cacau 1L", 
+    preco: 7.90, 
+    imagem: "https://m.media-amazon.com/images/I/51kAfklL8HL.__AC_SY300_SX300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Alternativa nutritiva ao achocolatado.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 315, 
+    nome: "Tofu 500g", 
+    preco: 17.90, 
+    imagem: "https://storage.moovin.store/main/e89978aa-2a3d-406b-aad5-16ca7b814d24/c9920d41-0348-44ff-bfa0-b4cbb2b98cbf-2.jpeg?v=1738245850&ims=fit-in/500x/filters:fill(FFF)", 
+    imagensExtras: [], 
+    descricao: "Fonte vegetal de proteína derivada da soja.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 316, 
+    nome: "Arroz Integral 1kg", 
+    preco: 6.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F15168608.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Fonte de energia com fibras.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 317, 
+    nome: "Macarrão de Grão-de-Bico 500g", 
+    preco: 13.90, 
+    imagem: "https://m.media-amazon.com/images/I/71x8MH7o7FL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Rico em proteínas e sem glúten.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 318, 
+    nome: "Água de Coco 1L", 
+    preco: 7.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3875857.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Hidratação natural com eletrólitos.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 319, 
+    nome: "Mel Puro 500g", 
+    preco: 18.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3876595.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Fonte natural de energia e antioxidantes.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  },
+  { 
+    id: 320, 
+    nome: "Cacau em Pó 100% 200g", 
+    preco: 21.90, 
+    imagem: "https://m.media-amazon.com/images/I/71m0h-J2SaL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Rico em antioxidantes e sem açúcar.", 
+    classificacao: "nutricao", 
+    destaque: false 
+  }
+],
 
   beleza: [
-    { id: 401, nome: "Shampoo Dercos Anticaspa 300ml", preco: 85.90, imagem: "/images/dercos.webp", descricao: "Combate a caspa e fortalece o couro cabeludo.", classificacao: "beleza", destaque: false },
-    { id: 402, nome: "Condicionador Hidratante 400ml", preco: 16.90, imagem: "/images/condicionador.webp", descricao: "Hidratação intensa para cabelos secos.", classificacao: "beleza", destaque: false },
-    { id: 403, nome: "Sabonete Líquido Facial 454ml", preco: 92.90, imagem: "/images/cerave.webp", descricao: "Limpeza suave para o rosto.", classificacao: "beleza", destaque: true },
-    { id: 404, nome: "Protetor Solar FPS 30 120ml", preco: 34.90, imagem: "/images/protetorsolar.webp", descricao: "Alta proteção contra raios UVA e UVB.", classificacao: "beleza", destaque: true },
-    { id: 405, nome: "Água Micelar 200ml", preco: 39.90, imagem: "/images/aguamicelar.webp", descricao: "Remove maquiagem e impurezas.", classificacao: "beleza", destaque: false },
-    { id: 406, nome: "Creme Anti-idade 50g", preco: 259.90, imagem: "/images/isdin.webp", descricao: "Reduz rugas e linhas de expressão.", classificacao: "beleza", destaque: false },
-    { id: 407, nome: "Hidratante corporal Cepathil", preco: 73.90, imagem:"/images/cetaphil.webp", descricao: "Promove hidratação 360º com ingredientes emolientes, oclusivos e umectantes. Embalagem econômica.", classificacao: "beleza", destaque: true },
-    { id: 408, nome: "Máscara de Argila Verde", preco: 12.90, imagem: "/images/argila.webp", descricao: "Controla oleosidade e limpa profundamente.", classificacao: "beleza", destaque: false },
-    { id: 409, nome: "Esfoliante Facial 100g", preco: 28.90, imagem: "/images/esfoliante.webp", descricao: "Remove células mortas e renova a pele.", classificacao: "beleza", destaque: false },
-    { id: 410, nome: "Desodorante Rexona Clinical", preco: 26.90, imagem: "/images/rexonaclinical.webp", descricao: "Proteção contra odores por ate 96h.", classificacao: "beleza", destaque: true },
-    { id: 411, nome: "Hidratante Labial Bepantol", preco: 35.00, imagem: "/images/bepan.webp", descricao: "Nutrição regeneradora para os lábios.", classificacao: "beleza", destaque: false },
-    { id: 412, nome: "Demaquilante Adcos Bifásico", preco: 21.90, imagem: "/images/rem.webp", descricao: "Remove maquiagem à prova d’água.", classificacao: "beleza", destaque: false },
-    { id: 413, nome: "Base Líquida Matte", preco: 88.90, imagem: "/images/base.webp", descricao: "Cobertura uniforme e longa duração.", classificacao: "beleza", destaque: false },
-    { id: 414, nome: "Lenços Demaquilantes", preco: 80.90, imagem: "/images/niv.webp", descricao: "Praticidade na remoção de maquiagem.", classificacao: "beleza", destaque: false },
-    { id: 415, nome: "Sérum Facial com Ácido Hialurônico", preco: 49.90, imagem: "/images/serumprinci.webp", descricao: "Pele mais firme e hidratada.", classificacao: "beleza", destaque: true },
-    { id: 416, nome: "Kit Loção Hidratante Corporal Isdin Ureadin 10% Ureia 400ml + Gel de Banho Hidratante Bath Gel 100ml", preco: 112.90, imagem: "/images/ureia.webp", descricao: "Evita o ressecamento da pele.", classificacao: "beleza", destaque: false },
-    { id: 417, nome: "Spray Corporal Antiacne Isdin Oily Skin Acniben + 150ml", preco: 136.90, imagem: "/images/spray.webp", descricao: "Modela e fixa os fios o dia todo.", classificacao: "beleza", destaque: false },
-    { id: 418, nome: "Perfume Phebo 100ml", preco: 89.90, imagem: "/images/phebo1.webp", descricao: "Fragrância suave e marcante.", classificacao: "beleza", destaque: false },
-    { id: 419, nome: "Perfume Phebo 100ml", preco: 95.00, imagem: "/images/phebo2.webp", descricao: "Aroma intenso e duradouro.", classificacao: "beleza", destaque: false },
-    { id: 420, nome: "Óleo de Banho Hidratante Bioderma Atoderm com 1L", preco: 192.90, imagem: "/images/oleob.webp", descricao: "Hidratação ate no banho.", classificacao: "beleza", destaque: false }
-    ],
+  { 
+    id: 401, 
+    nome: "Shampoo Dercos Anticaspa 300ml", 
+    preco: 85.90, 
+    imagem: "/images/dercos.webp", 
+    imagensExtras: [], 
+    descricao: "Combate a caspa e fortalece o couro cabeludo.", 
+    classificacao: "beleza", 
+    destaque: false 
+  },
+  { 
+    id: 402, 
+    nome: "Condicionador Hidratante 400ml", 
+    preco: 16.90, 
+    imagem: "/images/condicionador.webp", 
+    imagensExtras: [], 
+    descricao: "Hidratação intensa para cabelos secos.", 
+    classificacao: "beleza", 
+    destaque: false 
+  },
+  { 
+    id: 403, 
+    nome: "Sabonete Líquido Facial 454ml", 
+    preco: 92.90, 
+    imagem: "/images/cerave.webp", 
+    imagensExtras: [], 
+    descricao: "Limpeza suave para o rosto.", 
+    classificacao: "beleza", 
+    destaque: true 
+  },
+  { 
+    id: 404, 
+    nome: "Protetor Solar FPS 30 120ml", 
+    preco: 34.90, 
+    imagem: "/images/protetorsolar.webp", 
+    imagensExtras: [], 
+    descricao: "Alta proteção contra raios UVA e UVB.", 
+    classificacao: "beleza", 
+    destaque: true 
+  },
+  { 
+    id: 405, 
+    nome: "Água Micelar 200ml", 
+    preco: 39.90, 
+    imagem: "/images/aguamicelar.webp", 
+    imagensExtras: [], 
+    descricao: "Remove maquiagem e impurezas.", 
+    classificacao: "beleza", 
+    destaque: false 
+  },
+  { 
+    id: 406, 
+    nome: "Creme Anti-idade 50g", 
+    preco: 259.90, 
+    imagem: "/images/isdin.webp", 
+    imagensExtras: [], 
+    descricao: "Reduz rugas e linhas de expressão.", 
+    classificacao: "beleza", 
+    destaque: false 
+  },
+  { 
+    id: 407, 
+    nome: "Hidratante corporal Cepathil", 
+    preco: 73.90, 
+    imagem:"/images/cetaphil.webp", 
+    imagensExtras: [], 
+    descricao: "Promove hidratação 360º com ingredientes emolientes, oclusivos e umectantes. Embalagem econômica.", 
+    classificacao: "beleza", 
+    destaque: true 
+  },
+  { 
+    id: 408, 
+    nome: "Máscara de Argila Verde", 
+    preco: 12.90, 
+    imagem: "/images/argila.webp", 
+    imagensExtras: [], 
+    descricao: "Controla oleosidade e limpa profundamente.", 
+    classificacao: "beleza", 
+    destaque: false 
+  },
+  { 
+    id: 409, 
+    nome: "Esfoliante Facial 100g", 
+    preco: 28.90, 
+    imagem: "/images/esfoliante.webp", 
+    imagensExtras: [], 
+    descricao: "Remove células mortas e renova a pele.", 
+    classificacao: "beleza", 
+    destaque: false 
+  },
+  { 
+    id: 410, 
+    nome: "Desodorante Rexona Clinical", 
+    preco: 26.90, 
+    imagem: "/images/rexonaclinical.webp", 
+    imagensExtras: [], 
+    descricao: "Proteção contra odores por ate 96h.", 
+    classificacao: "beleza", 
+    destaque: true 
+  },
+  { 
+    id: 411, 
+    nome: "Hidratante Labial Bepantol", 
+    preco: 35.00, 
+    imagem: "/images/bepan.webp", 
+    imagensExtras: [], 
+    descricao: "Nutrição regeneradora para os lábios.", 
+    classificacao: "beleza", 
+    destaque: false 
+  },
+  { 
+    id: 412, 
+    nome: "Demaquilante Adcos Bifásico", 
+    preco: 21.90, 
+    imagem: "/images/rem.webp", 
+    imagensExtras: [], 
+    descricao: "Remove maquiagem à prova d’água.", 
+    classificacao: "beleza", 
+    destaque: false 
+  },
+  { 
+    id: 413, 
+    nome: "Base Líquida Matte", 
+    preco: 88.90, 
+    imagem: "/images/base.webp", 
+    imagensExtras: [], 
+    descricao: "Cobertura uniforme e longa duração.", 
+    classificacao: "beleza", 
+    destaque: false 
+  },
+  { 
+    id: 414, 
+    nome: "Lenços Demaquilantes", 
+    preco: 80.90, 
+    imagem: "/images/niv.webp", 
+    imagensExtras: [], 
+    descricao: "Praticidade na remoção de maquiagem.", 
+    classificacao: "beleza", 
+    destaque: false 
+  },
+  { 
+    id: 415, 
+    nome: "Sérum Facial com Ácido Hialurônico", 
+    preco: 49.90, 
+    imagem: "/images/serumprinci.webp", 
+    imagensExtras: [], 
+    descricao: "Pele mais firme e hidratada.", 
+    classificacao: "beleza", 
+    destaque: true 
+  },
+  { 
+    id: 416, 
+    nome: "Kit Loção Hidratante Corporal Isdin Ureadin 10% Ureia 400ml + Gel de Banho Hidratante Bath Gel 100ml", 
+    preco: 112.90, 
+    imagem: "/images/ureia.webp", 
+    imagensExtras: [], 
+    descricao: "Evita o ressecamento da pele.", 
+    classificacao: "beleza", 
+    destaque: false 
+  },
+  { 
+    id: 417, 
+    nome: "Spray Corporal Antiacne Isdin Oily Skin Acniben + 150ml", 
+    preco: 136.90, 
+    imagem: "/images/spray.webp", 
+    imagensExtras: [], 
+    descricao: "Modela e fixa os fios o dia todo.", 
+    classificacao: "beleza", 
+    destaque: false 
+  },
+  { 
+    id: 418, 
+    nome: "Perfume Phebo 100ml", 
+    preco: 89.90, 
+    imagem: "/images/phebo1.webp", 
+    imagensExtras: [], 
+    descricao: "Fragrância suave e marcante.", 
+    classificacao: "beleza", 
+    destaque: false 
+  },
+  { 
+    id: 419, 
+    nome: "Perfume Phebo 100ml", 
+    preco: 95.00, 
+    imagem: "/images/phebo2.webp", 
+    imagensExtras: [], 
+    descricao: "Aroma intenso e duradouro.", 
+    classificacao: "beleza", 
+    destaque: false 
+  },
+  { 
+    id: 420, 
+    nome: "Óleo de Banho Hidratante Bioderma Atoderm com 1L", 
+    preco: 192.90, 
+    imagem: "/images/oleob.webp", 
+    imagensExtras: [], 
+    descricao: "Hidratação ate no banho.", 
+    classificacao: "beleza", 
+    destaque: false 
+  }
+],
 
   bebes: [
-    { id: 501, nome: "Fralda Descartável M 80 unid.", preco: 129.90, imagem: "/images/fraldam.webp", descricao: "Alta absorção e conforto para o bebê.", classificacao: "bebes", destaque: true },
-    { id: 502, nome: "Lenço Umedecido 100 unid.", preco: 12.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F5488325.webp&w=828&q=75", descricao: "Limpeza suave para peles delicadas.", classificacao: "bebes", destaque: false },
-    { id: 503, nome: "Sabonete Líquido Bebê 200ml", preco: 10.90, imagem: "https://m.media-amazon.com/images/I/51C0NWRwv-L._AC_SL1000_.jpg", descricao: "Limpeza suave e sem lágrimas.", classificacao: "bebes", destaque: false },
-    { id: 504, nome: "Pomada para Assaduras 45g", preco: 14.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F6616792.webp&w=828&q=75", descricao: "Protege e hidrata contra assaduras.", classificacao: "bebes", destaque: false },
-    { id: 505, nome: "Shampoo Infantil 200ml", preco: 11.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3464180.webp&w=828&q=75", descricao: "Fórmula delicada para os pequenos.", classificacao: "bebes", destaque: false },
-    { id: 506, nome: "Condicionador Bebê 200ml", preco: 12.90, imagem: "https://m.media-amazon.com/images/I/51z50+P0e+L._AC_SY300_SX300_QL70_ML2_.jpg", descricao: "Desembaraça sem agredir os fios.", classificacao: "bebes", destaque: false },
-    { id: 507, nome: "Chupeta Ortodôntica Tam. 1", preco: 9.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F11645143.webp&w=828&q=75", descricao: "Conforto e segurança para o bebê.", classificacao: "bebes", destaque: false },
-    { id: 508, nome: "Mordedor de Silicone", preco: 15.00, imagem: "https://m.media-amazon.com/images/I/51Vfzz5SZTL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Alivia o desconforto do nascimento dos dentes.", classificacao: "bebes", destaque: false },
-    { id: 509, nome: "Mamadeira 240ml", preco: 18.90, imagem: "https://m.media-amazon.com/images/I/71eaqKuOklL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Tampa antivazamento e bico macio.", classificacao: "bebes", destaque: false },
-    { id: 510, nome: "Toalha com Capuz", preco: 29.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3835479.webp&w=828&q=75", descricao: "Conforto após o banho.", classificacao: "bebes", destaque: false },
-    { id: 511, nome: "Escova de Cabelo Infantil", preco: 7.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3563428.webp&w=828&q=75", descricao: "Cerdas macias para o couro cabeludo.", classificacao: "bebes", destaque: false },
-    { id: 512, nome: "Cotonete Infantil 150 unid.", preco: 6.90, imagem: "https://m.media-amazon.com/images/I/61eGV2OquGL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Segurança para higiene dos ouvidos.", classificacao: "bebes", destaque: false },
-    { id: 513, nome: "Colônia Huggies Suave para Bebês", preco: 37.90, imagem: "/images/colonia.webp", descricao: "Fragrância suave e hipoalergênica.", classificacao: "bebes", destaque: true },
-    { id: 514, nome: "Luva de Banho Infantil", preco: 9.90, imagem: "https://m.media-amazon.com/images/I/31yEe8TXEwL.__AC_SX300_SY300_QL70_ML2_.jpg", descricao: "Ajuda na higiene delicada do bebê.", classificacao: "bebes", destaque: false },
-    { id: 515, nome: "Almofada de Amamentação", preco: 79.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F5099513.webp&w=828&q=75", descricao: "Mais conforto para mãe e bebê.", classificacao: "bebes", destaque: false },
-    { id: 516, nome: "Babador com Bolso Coletor", preco: 14.90, imagem: "https://m.media-amazon.com/images/I/71VW0PbL+wL._AC_SY300_SX300_QL70_ML2_.jpg", descricao: "Evita sujeiras durante a alimentação.", classificacao: "bebes", destaque: false },
-    { id: 517, nome: "Termômetro Digital Infantil", preco: 32.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F11124710.webp&w=828&q=75", descricao: "Medição rápida e precisa.", classificacao: "bebes", destaque: false },
-    { id: 518, nome: "Prato com Divisórias e Ventosa", preco: 21.90, imagem: "https://m.media-amazon.com/images/I/51QozP+haPL._AC_SY300_SX300_QL70_ML2_.jpg", descricao: "Facilita a hora da papinha.", classificacao: "bebes", destaque: false },
-    { id: 519, nome: "Copo de Transição 180ml", preco: 19.90, imagem: "https://m.media-amazon.com/images/I/51o3VPApBsL._AC_SL1200_.jpg", descricao: "Ajuda o bebê a beber sozinho.", classificacao: "bebes", destaque: false },
-    { id: 520, nome: "Escova de Mamadeira", preco: 8.90, imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3708289.webp&w=828&q=75", descricao: "Facilita a limpeza completa da mamadeira.", classificacao: "bebes", destaque: false }
-    ]
+  { 
+    id: 501, 
+    nome: "Fralda Descartável M 80 unid.", 
+    preco: 129.90, 
+    imagem: "/images/fraldam.webp", 
+    imagensExtras: [], 
+    descricao: "Alta absorção e conforto para o bebê.", 
+    classificacao: "bebes", 
+    destaque: true 
+  },
+  { 
+    id: 502, 
+    nome: "Lenço Umedecido 100 unid.", 
+    preco: 12.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F5488325.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Limpeza suave para peles delicadas.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 503, 
+    nome: "Sabonete Líquido Bebê 200ml", 
+    preco: 10.90, 
+    imagem: "https://m.media-amazon.com/images/I/51C0NWRwv-L._AC_SL1000_.jpg", 
+    imagensExtras: [], 
+    descricao: "Limpeza suave e sem lágrimas.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 504, 
+    nome: "Pomada para Assaduras 45g", 
+    preco: 14.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F6616792.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Protege e hidrata contra assaduras.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 505, 
+    nome: "Shampoo Infantil 200ml", 
+    preco: 11.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3464180.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Fórmula delicada para os pequenos.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 506, 
+    nome: "Condicionador Bebê 200ml", 
+    preco: 12.90, 
+    imagem: "https://m.media-amazon.com/images/I/51z50+P0e+L._AC_SY300_SX300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Desembaraça sem agredir os fios.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 507, 
+    nome: "Chupeta Ortodôntica Tam. 1", 
+    preco: 9.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F11645143.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Conforto e segurança para o bebê.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 508, 
+    nome: "Mordedor de Silicone", 
+    preco: 15.00, 
+    imagem: "https://m.media-amazon.com/images/I/51Vfzz5SZTL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Alivia o desconforto do nascimento dos dentes.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 509, 
+    nome: "Mamadeira 240ml", 
+    preco: 18.90, 
+    imagem: "https://m.media-amazon.com/images/I/71eaqKuOklL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Tampa antivazamento e bico macio.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 510, 
+    nome: "Toalha com Capuz", 
+    preco: 29.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3835479.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Conforto após o banho.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 511, 
+    nome: "Escova de Cabelo Infantil", 
+    preco: 7.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3563428.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Cerdas macias para o couro cabeludo.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 512, 
+    nome: "Cotonete Infantil 150 unid.", 
+    preco: 6.90, 
+    imagem: "https://m.media-amazon.com/images/I/61eGV2OquGL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Segurança para higiene dos ouvidos.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 513, 
+    nome: "Colônia Huggies Suave para Bebês", 
+    preco: 37.90, 
+    imagem: "/images/colonia.webp", 
+    imagensExtras: [], 
+    descricao: "Fragrância suave e hipoalergênica.", 
+    classificacao: "bebes", 
+    destaque: true 
+  },
+  { 
+    id: 514, 
+    nome: "Luva de Banho Infantil", 
+    preco: 9.90, 
+    imagem: "https://m.media-amazon.com/images/I/31yEe8TXEwL.__AC_SX300_SY300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Ajuda na higiene delicada do bebê.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 515, 
+    nome: "Almofada de Amamentação", 
+    preco: 79.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F5099513.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Mais conforto para mãe e bebê.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 516, 
+    nome: "Babador com Bolso Coletor", 
+    preco: 14.90, 
+    imagem: "https://m.media-amazon.com/images/I/71VW0PbL+wL._AC_SY300_SX300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Evita sujeiras durante a alimentação.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 517, 
+    nome: "Termômetro Digital Infantil", 
+    preco: 32.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F11124710.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Medição rápida e precisa.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 518, 
+    nome: "Prato com Divisórias e Ventosa", 
+    preco: 21.90, 
+    imagem: "https://m.media-amazon.com/images/I/51QozP+haPL._AC_SY300_SX300_QL70_ML2_.jpg", 
+    imagensExtras: [], 
+    descricao: "Facilita a hora da papinha.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 519, 
+    nome: "Copo de Transição 180ml", 
+    preco: 19.90, 
+    imagem: "https://m.media-amazon.com/images/I/51o3VPApBsL._AC_SL1200_.jpg", 
+    imagensExtras: [], 
+    descricao: "Ajuda o bebê a beber sozinho.", 
+    classificacao: "bebes", 
+    destaque: false 
+  },
+  { 
+    id: 520, 
+    nome: "Escova de Mamadeira", 
+    preco: 8.90, 
+    imagem: "https://www.drogasil.com.br/_next/image?url=https%3A%2F%2Fproduct-data.raiadrogasil.io%2Fimages%2F3708289.webp&w=828&q=75", 
+    imagensExtras: [], 
+    descricao: "Facilita a limpeza completa da mamadeira.", 
+    classificacao: "bebes", 
+    destaque: false 
+  }
+]
 }
-
-
 export default produtos
