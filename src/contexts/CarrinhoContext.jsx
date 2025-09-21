@@ -1,42 +1,98 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
+import api from "../services/api";
 
-const CarrinhoContext = createContext();
+const CarrinhoContext = createContext(undefined);
 
-export function CarrinhoProvider({ children }) {
-  const [carrinho, setCarrinho] = useState([]);
+export const CarrinhoProvider = ({ children }) => {
+  const [carrinho, setCarrinho] = useState(null);
+  const [itens, setItens] = useState([]);
+  const [usuarioId] = useState(1);
 
-  function adicionarProduto(produto) {
-    setCarrinho((prev) => {
-      const produtoExistente = prev.find((p) => p.id === produto.id);
-
-      if (produtoExistente) {
-        return prev.map((p) =>
-          p.id === produto.id ? { ...p, quantidade: p.quantidade + 1 } : p
-        );
-      } else {
-        return [...prev, { ...produto, quantidade: 1 }];
+  useEffect(() => {
+    async function carregarCarrinho() {
+      try {
+        const res = await api.get(`/carrinhos/usuario/${usuarioId}`);
+        if (res.data.length > 0) {
+          setCarrinho(res.data[0]);
+          setItens(res.data[0].itenscarrinho || []);
+        } else {
+          const novoCarrinho = await api.post("/carrinhos", { usuario_id: usuarioId });
+          setCarrinho(novoCarrinho.data);
+          setItens([]);
+        }
+      } catch (err) {
+        console.error("Erro ao carregar carrinho:", err);
       }
-    });
-  }
+    }
+    carregarCarrinho();
+  }, [usuarioId]);
 
-  function removerProduto(id) {
-    setCarrinho((prev) => prev.filter((p) => p.id !== id));
-  }
+  const adicionarProduto = async (produto) => {
+    if (!carrinho) return;
+    try {
+      await api.post("/itens-carrinho", {
+        carrinho_id: carrinho.id,
+        produto_id: produto.id,
+        quantidade: 1,
+      });
+      atualizarItens(carrinho.id);
+    } catch (err) {
+      console.error("Erro ao adicionar produto:", err);
+    }
+  };
 
-  function diminuirQuantidade(id) {
-    setCarrinho((prev) =>
-      prev
-        .map((p) => (p.id === id ? { ...p, quantidade: p.quantidade - 1 } : p))
-        .filter((p) => p.quantidade > 0)
-    );
-  }
+  const removerProduto = async (itemId) => {
+    try {
+      await api.delete(`/itens-carrinho/${itemId}`);
+      atualizarItens(carrinho.id);
+    } catch (err) {
+      console.error("Erro ao remover produto:", err);
+    }
+  };
 
-  function limparCarrinho() {
-    setCarrinho([]);
-  }
+  const diminuirQuantidade = async (itemId) => {
+    try {
+      await api.put(`/itens-carrinho/${itemId}/diminuir`);
+      atualizarItens(carrinho.id);
+    } catch (err) {
+      console.error("Erro ao diminuir quantidade:", err);
+    }
+  };
 
-  const total = carrinho.reduce(
-    (acc, item) => acc + item.preco * item.quantidade,
+  const limparCarrinho = async () => {
+    try {
+      const itensCarrinho = await api.get(`/itens-carrinho/carrinho/${carrinho.id}`);
+      for (let item of itensCarrinho.data) {
+        await api.delete(`/itens-carrinho/${item.id}`);
+      }
+      atualizarItens(carrinho.id);
+    } catch (err) {
+      console.error("Erro ao limpar carrinho:", err);
+    }
+  };
+
+  const finalizarCarrinho = async () => {
+    try {
+      const res = await api.put(`/carrinhos/${carrinho.id}/finalizar`);
+      setCarrinho(res.data);
+      setItens([]);
+      return res.data;
+    } catch (err) {
+      console.error("Erro ao finalizar carrinho:", err);
+    }
+  };
+
+  const atualizarItens = async (carrinhoId) => {
+    try {
+      const res = await api.get(`/itens-carrinho/carrinho/${carrinhoId}`);
+      setItens(res.data);
+    } catch (err) {
+      console.error("Erro ao atualizar itens:", err);
+    }
+  };
+
+  const total = itens.reduce(
+    (acc, item) => acc + item.preco_unitario * item.quantidade,
     0
   );
 
@@ -44,18 +100,24 @@ export function CarrinhoProvider({ children }) {
     <CarrinhoContext.Provider
       value={{
         carrinho,
+        itens,
         adicionarProduto,
         removerProduto,
         diminuirQuantidade,
         limparCarrinho,
+        finalizarCarrinho,
         total,
       }}
     >
       {children}
     </CarrinhoContext.Provider>
   );
-}
+};
 
-export function useCarrinho() {
-  return useContext(CarrinhoContext);
-}
+export const useCarrinho = () => {
+  const context = useContext(CarrinhoContext);
+  if (!context) {
+    throw new Error("useCarrinho deve ser usado dentro de um CarrinhoProvider");
+  }
+  return context;
+};

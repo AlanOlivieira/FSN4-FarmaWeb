@@ -5,11 +5,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Carrinho() {
   const {
-    carrinho,
+    itens,
     adicionarProduto,
     diminuirQuantidade,
     removerProduto,
     total,
+    finalizarCarrinho,
   } = useCarrinho();
 
   const [hoverRemoverId, setHoverRemoverId] = useState(null);
@@ -17,15 +18,16 @@ export default function Carrinho() {
 
   const navigate = useNavigate();
 
-  const finalizarCompra = () => {
-    if (carrinho.length === 0) {
+  const finalizarCompra = async () => {
+    if (itens.length === 0) {
       alert("Seu carrinho está vazio!");
       return;
     }
-    navigate("/finalizacao", { state: { carrinho, total } });
+    await finalizarCarrinho();
+    navigate("/finalizacao", { state: { itens, total } });
   };
 
-  if (carrinho.length === 0) {
+  if (itens.length === 0) {
     return (
       <div className="container py-5">
         <h1 className="mb-4">Carrinho de Compras</h1>
@@ -43,27 +45,28 @@ export default function Carrinho() {
 
       <div className="row">
         <div className="col-lg-8">
-          {carrinho.map((produto) => (
-            <div key={produto.id} className="card mb-3 shadow-sm">
+          {itens.map((item) => (
+            <div key={item.id} className="card mb-3 shadow-sm">
               <div className="row g-0">
                 <div className="col-md-3">
                   <img
-                    src={produto.imagem}
+                    src={item.produto.imagem}
                     className="img-fluid rounded-start"
-                    alt={produto.nome}
+                    alt={item.produto.nome}
                     style={{ objectFit: "cover", height: "100%" }}
                   />
                 </div>
                 <div className="col-md-9">
                   <div className="card-body">
-                    <h5 className="card-title">{produto.nome}</h5>
+                    <h5 className="card-title">{item.produto.nome}</h5>
                     <p className="card-text mb-1">
-                      Preço unitário: <strong>R$ {produto.preco.toFixed(2)}</strong>
+                      Preço unitário:{" "}
+                      <strong>R$ {item.preco_unitario.toFixed(2)}</strong>
                     </p>
                     <p className="card-text mb-1">
                       Subtotal:{" "}
                       <strong>
-                        R$ {(produto.preco * produto.quantidade).toFixed(2)}
+                        R$ {(item.preco_unitario * item.quantidade).toFixed(2)}
                       </strong>
                     </p>
                     <div className="d-flex align-items-center mt-3">
@@ -81,7 +84,7 @@ export default function Carrinho() {
                           cursor: "pointer",
                           marginRight: "8px",
                         }}
-                        onClick={() => diminuirQuantidade(produto.id)}
+                        onClick={() => diminuirQuantidade(item.id)}
                       >
                         -
                       </button>
@@ -94,7 +97,7 @@ export default function Carrinho() {
                           display: "inline-block",
                         }}
                       >
-                        {produto.quantidade}
+                        {item.quantidade}
                       </span>
 
                       <button
@@ -111,28 +114,20 @@ export default function Carrinho() {
                           cursor: "pointer",
                           marginLeft: "8px",
                         }}
-                        onClick={() =>
-                          adicionarProduto({
-                            id: produto.id,
-                            nome: produto.nome,
-                            preco: produto.preco,
-                            imagem: produto.imagem,
-                            descricao: produto.descricao,
-                          })
-                        }
+                        onClick={() => adicionarProduto(item.produto)}
                       >
                         +
                       </button>
 
                       <button
-                        onClick={() => removerProduto(produto.id)}
-                        onMouseEnter={() => setHoverRemoverId(produto.id)}
+                        onClick={() => removerProduto(item.id)}
+                        onMouseEnter={() => setHoverRemoverId(item.id)}
                         onMouseLeave={() => setHoverRemoverId(null)}
                         style={{
                           backgroundColor:
-                            hoverRemoverId === produto.id ? "#fff" : "#e0181f",
+                            hoverRemoverId === item.id ? "#fff" : "#e0181f",
                           color:
-                            hoverRemoverId === produto.id ? "#e0181f" : "#fff",
+                            hoverRemoverId === item.id ? "#e0181f" : "#fff",
                           border: "2px solid #e0181f",
                           padding: "6px 12px",
                           borderRadius: "4px",
@@ -157,12 +152,17 @@ export default function Carrinho() {
             <div className="card-body">
               <h4 className="card-title">Resumo da Compra</h4>
               <hr />
-              {carrinho.map((item) => (
-                <div key={item.id} className="d-flex justify-content-between mb-2">
+              {itens.map((item) => (
+                <div
+                  key={item.id}
+                  className="d-flex justify-content-between mb-2"
+                >
                   <span>
-                    {item.nome} x {item.quantidade}
+                    {item.produto.nome} x {item.quantidade}
                   </span>
-                  <span>R$ {(item.preco * item.quantidade).toFixed(2)}</span>
+                  <span>
+                    R$ {(item.preco_unitario * item.quantidade).toFixed(2)}
+                  </span>
                 </div>
               ))}
               <hr />

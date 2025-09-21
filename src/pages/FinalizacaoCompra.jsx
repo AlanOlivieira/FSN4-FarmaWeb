@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaCheckCircle } from "react-icons/fa";
 import { useCarrinho } from "../contexts/CarrinhoContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function FinalizacaoCompra() {
-  const location = useLocation();
   const navigate = useNavigate();
-  const { limparCarrinho } = useCarrinho();
+  const { itens, total, limparCarrinho } = useCarrinho();
   const [pedido, setPedido] = useState(null);
 
   useEffect(() => {
-    const state = location.state;
-
-    if (!state || !state.carrinho || state.carrinho.length === 0) {
+    if (!itens || itens.length === 0) {
       navigate("/", { replace: true });
       return;
     }
@@ -22,10 +19,8 @@ export default function FinalizacaoCompra() {
 
     const novoPedido = {
       numero: numeroPedido,
-      itens: state.carrinho,
-      total: typeof state.total === "number"
-        ? state.total
-        : state.carrinho.reduce((s, it) => s + it.preco * (it.quantidade || 1), 0),
+      itens,
+      total,
       pagamento: "Cartão de Crédito",
       data: new Date().toLocaleString(),
     };
@@ -33,12 +28,10 @@ export default function FinalizacaoCompra() {
     setPedido(novoPedido);
     localStorage.setItem("ultimoPedido", JSON.stringify(novoPedido));
 
-
     if (typeof limparCarrinho === "function") {
       limparCarrinho();
     }
-
-  }, []); 
+  }, [itens, total, limparCarrinho, navigate]);
 
   if (!pedido) {
     return (
@@ -80,12 +73,16 @@ export default function FinalizacaoCompra() {
               className="list-group-item d-flex justify-content-between"
             >
               <div>
-                <div className="fw-bold">{item.nome}</div>
-                <small className="text-muted">R$ {item.preco.toFixed(2)}</small>
+                <div className="fw-bold">{item.produto.nome}</div>
+                <small className="text-muted">
+                  R$ {item.preco_unitario.toFixed(2)}
+                </small>
               </div>
               <div className="text-end">
                 <div>{item.quantidade}x</div>
-                <div>R$ {(item.preco * item.quantidade).toFixed(2)}</div>
+                <div>
+                  R$ {(item.preco_unitario * item.quantidade).toFixed(2)}
+                </div>
               </div>
             </div>
           ))}

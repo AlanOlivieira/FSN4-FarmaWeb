@@ -9,10 +9,9 @@ export default function ProdutoCard({ produto }) {
 
   return (
     <div className="card h-100 w-100 shadow-sm position-relative">
-      
       <Link to={`/produto/${produto.id}`}>
         <img
-          src={produto.imagem}
+          src={produto.imagemPrincipal || "/images/produto-placeholder.png"}
           alt={produto.nome}
           className="card-img-top"
           style={{ height: '200px', objectFit: 'contain' }}
@@ -33,9 +32,9 @@ export default function ProdutoCard({ produto }) {
         </Link>
 
         <p className="card-text" style={{ flexGrow: 1 }}>
-          {produto.descricao}
+          {produto.descricao || "Sem descrição disponível"}
         </p>
-        <p className="card-text fw-bold">R$ {produto.preco.toFixed(2)}</p>
+        <p className="card-text fw-bold">R$ {produto.preco?.toFixed(2) || "0,00"}</p>
       </div>
     </div>
   );

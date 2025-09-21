@@ -3,7 +3,7 @@ import { useFavoritos } from "../contexts/FavoritosContext";
 import ProdutoCard from "../components/ProdutoCard";
 
 export default function ProdutosFavoritos() {
-  const { favoritos } = useFavoritos();
+  const { favoritos, removerFavorito } = useFavoritos();
 
   return (
     <div className="container mt-4">
@@ -12,9 +12,17 @@ export default function ProdutosFavoritos() {
         <p>Nenhum produto favoritado ainda.</p>
       ) : (
         <div className="row">
-          {favoritos.map((produto) => (
-            <div className="col-6 col-md-4 col-lg-3 mb-4" key={produto.id}>
-              <ProdutoCard produto={produto} />
+          {favoritos.map((fav) => (
+            <div className="col-6 col-md-4 col-lg-3 mb-4" key={fav.id}>
+              <div className="card shadow-sm h-100 d-flex flex-column">
+                <ProdutoCard produto={fav.produto} />
+                <button
+                  className="btn btn-outline-danger mt-2"
+                  onClick={() => removerFavorito(fav.id)}
+                >
+                  Remover
+                </button>
+              </div>
             </div>
           ))}
         </div>

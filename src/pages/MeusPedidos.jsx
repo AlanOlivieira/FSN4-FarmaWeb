@@ -24,9 +24,15 @@ export default function MeusPedidos() {
         <h5 className="mt-3">Itens:</h5>
         <ul className="list-group">
           {pedido.itens.map((item) => (
-            <li key={item.id} className="list-group-item d-flex justify-content-between">
-              {item.nome} <span>{item.quantidade}x</span>
-              <span>R$ {(item.preco * item.quantidade).toFixed(2)}</span>
+            <li
+              key={item.id}
+              className="list-group-item d-flex justify-content-between"
+            >
+              <span>{item.produto.nome}</span>
+              <span>{item.quantidade}x</span>
+              <span>
+                R$ {(item.preco_unitario * item.quantidade).toFixed(2)}
+              </span>
             </li>
           ))}
         </ul>

@@ -2,34 +2,46 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useCarrinho } from "../contexts/CarrinhoContext";
 import { useFavoritos } from "../contexts/FavoritosContext";
-import produtos from "../data/produtos";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { Button, Form, Card } from "react-bootstrap";
+import api from "../services/api";
+import { useEffect } from "react";
 
 export default function DetalheProduto() {
   const { id } = useParams();
   const { adicionarProduto } = useCarrinho();
   const { adicionarFavorito } = useFavoritos();
+  const [produto, setProduto] = useState(null);
   const [imagemSelecionada, setImagemSelecionada] = useState(null);
   const [cep, setCep] = useState("");
 
-
-  const categorias = Object.values(produtos).flat();
-  const produto = categorias.find((p) => p.id === parseInt(id));
+  useEffect(() => {
+    async function carregarProduto() {
+      try {
+        const res = await api.get(`/produtos/${id}`);
+        setProduto(res.data);
+      } catch (err) {
+        console.error("Erro ao carregar produto:", err);
+      }
+    }
+    carregarProduto();
+  }, [id]);
 
   if (!produto) {
-    return <p className="text-center mt-5">Produto não encontrado</p>;
+    return <p className="text-center mt-5">Carregando produto...</p>;
   }
 
-  const imagens = [produto.imagem, ...(produto.imagensExtras || [])];
+  const imagens = [
+    produto.imagemPrincipal,
+    ...(produto.imagensGaleria?.map((img) => img.url) || []),
+  ].filter(Boolean);
 
   return (
     <>
       <Header />
       <div className="container my-5">
         <div className="row">
-          
           <div className="col-md-6 d-flex">
             <div className="me-3 d-flex flex-column align-items-center">
               {imagens.map((img, i) => (
@@ -50,7 +62,7 @@ export default function DetalheProduto() {
             </div>
             <div className="flex-grow-1 text-center p-3 bg-white border rounded">
               <img
-                src={imagemSelecionada || produto.imagem}
+                src={imagemSelecionada || produto.imagemPrincipal}
                 alt={produto.nome}
                 className="img-fluid"
                 style={{ maxHeight: "400px", objectFit: "contain" }}
@@ -64,17 +76,6 @@ export default function DetalheProduto() {
               <h2 className="fw-bold mb-2" style={{ fontSize: "1.8rem" }}>
                 {produto.nome}
               </h2>
-
-              <div className="mb-2">
-                <span className="text-warning fs-5">
-                  <i className="bi bi-star-fill"></i>
-                  <i className="bi bi-star-fill"></i>
-                  <i className="bi bi-star-fill"></i>
-                  <i className="bi bi-star-fill"></i>
-                  <i className="bi bi-star"></i>
-                </span>
-                <small className="ms-2 text-muted">1 avaliação</small>
-              </div>
 
               <h3 className="text-primary fw-bold mb-4">
                 R$ {produto.preco.toFixed(2)}
@@ -103,7 +104,6 @@ export default function DetalheProduto() {
                 </Button>
               </div>
 
-         
               <div>
                 <h6 className="fw-bold">Informações de entrega</h6>
                 <Form.Label>Calcular frete</Form.Label>
@@ -126,22 +126,17 @@ export default function DetalheProduto() {
                     OK
                   </Button>
                 </div>
-                <a href="#" className="d-block mt-2 small text-primary">
-                  Não sei meu CEP
-                </a>
               </div>
             </div>
           </div>
         </div>
-
 
         <div className="row mt-4">
           <div className="col-12">
             <div className="p-4 bg-white border rounded">
               <h4 className="fw-bold">Descrição</h4>
               <p className="text-muted">
-                {produto.descricaoDetalhada ||
-                  "Informações detalhadas do produto em breve."}
+                {produto.descricao || "Informações detalhadas do produto em breve."}
               </p>
             </div>
           </div>
@@ -151,14 +146,14 @@ export default function DetalheProduto() {
           <div className="col-12">
             <h4 className="fw-bold mb-3">Produtos relacionados</h4>
             <div className="d-flex overflow-auto gap-3">
-              {categorias
-                .filter((p) => p.id !== produto.id)
+              {produto.categoria?.produtos
+                ?.filter((p) => p.id !== produto.id)
                 .slice(0, 6)
                 .map((p) => (
                   <Card key={p.id} style={{ minWidth: "200px" }}>
                     <Card.Img
                       variant="top"
-                      src={p.imagem}
+                      src={p.imagemPrincipal || "/images/produto-placeholder.png"}
                       style={{ height: "150px", objectFit: "contain" }}
                     />
                     <Card.Body>

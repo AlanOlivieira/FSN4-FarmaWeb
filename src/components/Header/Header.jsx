@@ -5,8 +5,8 @@ import { FaSearch } from 'react-icons/fa';
 import './Header.css';
 
 export default function Header() {
-  const { carrinho } = useCarrinho();
-  const totalItens = carrinho.reduce((soma, item) => soma + item.quantidade, 0);
+  const { itens } = useCarrinho();
+  const totalItens = itens.reduce((soma, item) => soma + item.quantidade, 0);
 
   const [termoPesquisa, setTermoPesquisa] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -68,7 +68,6 @@ export default function Header() {
             </div>
           </div>
 
-    
           <div className="main-nav d-none d-lg-block">
             <nav className="site-navigation text-right text-md-center" role="navigation">
               <ul className="site-menu js-clone-nav d-none d-lg-block">
