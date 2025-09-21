@@ -1,9 +1,24 @@
+// Atualização do BotaoFinalizar.jsx para verificar autenticação
+import { useState } from 'react';
+import { useAuth } from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
 function BotaoFinalizar({ onClick }) {
   const [hover, setHover] = useState(false);
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (!currentUser) {
+      navigate('/login-required');
+      return;
+    }
+    onClick();
+  };
 
   return (
     <button
-      onClick={onClick}
+      onClick={handleClick}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
@@ -23,3 +38,5 @@ function BotaoFinalizar({ onClick }) {
     </button>
   );
 }
+
+export default BotaoFinalizar;

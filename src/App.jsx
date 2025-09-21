@@ -1,4 +1,6 @@
 import { FavoritosProvider } from './contexts/FavoritosContext';
+import { AuthProvider } from './contexts/AuthContext';
+import { CarrinhoProvider } from './contexts/CarrinhoContext';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
@@ -20,6 +22,9 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import PaginaDePesquisa from './pages/PaginaDePesquisa';
 import FinalizacaoCompra from './pages/FinalizacaoCompra';
 import MeusPedidos from './pages/MeusPedidos';
+import MinhaConta from './pages/MinhaConta';
+import LoginRequired from './pages/LoginRequired';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function Layout() {
   return (
@@ -35,31 +40,51 @@ function Layout() {
 
 function App() {
   return (
-    <FavoritosProvider>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="sobre" element={<Sobre />} />
-          <Route path="contato" element={<Contato />} />
-          <Route path="categorias">
-            <Route path="suplementos" element={<Suplementos />} />
-            <Route path="vitaminas" element={<Vitaminas />} />
-            <Route path="dieta-nutricao" element={<Nutricao />} />
-            <Route path="beleza" element={<Beleza />} />
-            <Route path="baby" element={<Bebes />} />
-            <Route path="medicamentos" element={<Medicamentos />} />
-          </Route>
-          <Route path="carrinho" element={<Carrinho />} />
-          <Route path="vendas" element={<TelaVendas />} />
-          <Route path="favoritos" element={<ProdutosFavoritos />} />
-          <Route path="pesquisa" element={<PaginaDePesquisa />} />
-          <Route path="finalizacao" element={<FinalizacaoCompra />} />
-          <Route path="meus-pedidos" element={<MeusPedidos />} />
-        </Route>
+    <AuthProvider>
+      <CarrinhoProvider>
+        <FavoritosProvider>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="sobre" element={<Sobre />} />
+              <Route path="contato" element={<Contato />} />
+              <Route path="categorias">
+                <Route path="suplementos" element={<Suplementos />} />
+                <Route path="vitaminas" element={<Vitaminas />} />
+                <Route path="dieta-nutricao" element={<Nutricao />} />
+                <Route path="beleza" element={<Beleza />} />
+                <Route path="baby" element={<Bebes />} />
+                <Route path="medicamentos" element={<Medicamentos />} />
+              </Route>
+              <Route path="carrinho" element={<Carrinho />} />
+              <Route path="vendas" element={<TelaVendas />} />
+              <Route path="favoritos" element={<ProdutosFavoritos />} />
+              <Route path="pesquisa" element={<PaginaDePesquisa />} />
+              <Route path="finalizacao" element={<FinalizacaoCompra />} />
+              <Route 
+                path="meus-pedidos" 
+                element={
+                  <ProtectedRoute>
+                    <MeusPedidos />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="minha-conta" 
+                element={
+                  <ProtectedRoute>
+                    <MinhaConta />
+                  </ProtectedRoute>
+                } 
+              />
+              <Route path="login-required" element={<LoginRequired />} />
+            </Route>
 
-        <Route path="/produto/:id" element={<DetalheProduto />} />
-      </Routes>
-    </FavoritosProvider>
+            <Route path="/produto/:id" element={<DetalheProduto />} />
+          </Routes>
+        </FavoritosProvider>
+      </CarrinhoProvider>
+    </AuthProvider>
   );
 }
 

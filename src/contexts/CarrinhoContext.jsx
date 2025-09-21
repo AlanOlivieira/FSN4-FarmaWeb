@@ -1,14 +1,14 @@
-import { createContext, useContext, useState } from "react";
+// contexts/CarrinhoContext.jsx
+import { createContext, useContext, useState, useCallback } from "react";
 
 const CarrinhoContext = createContext();
 
 export function CarrinhoProvider({ children }) {
   const [carrinho, setCarrinho] = useState([]);
 
-  function adicionarProduto(produto) {
+  const adicionarProduto = useCallback((produto) => {
     setCarrinho((prev) => {
       const produtoExistente = prev.find((p) => p.id === produto.id);
-
       if (produtoExistente) {
         return prev.map((p) =>
           p.id === produto.id ? { ...p, quantidade: p.quantidade + 1 } : p
@@ -17,23 +17,23 @@ export function CarrinhoProvider({ children }) {
         return [...prev, { ...produto, quantidade: 1 }];
       }
     });
-  }
+  }, []);
 
-  function removerProduto(id) {
+  const removerProduto = useCallback((id) => {
     setCarrinho((prev) => prev.filter((p) => p.id !== id));
-  }
+  }, []);
 
-  function diminuirQuantidade(id) {
+  const diminuirQuantidade = useCallback((id) => {
     setCarrinho((prev) =>
       prev
         .map((p) => (p.id === id ? { ...p, quantidade: p.quantidade - 1 } : p))
         .filter((p) => p.quantidade > 0)
     );
-  }
+  }, []);
 
-  function limparCarrinho() {
+  const limparCarrinho = useCallback(() => {
     setCarrinho([]);
-  }
+  }, []);
 
   const total = carrinho.reduce(
     (acc, item) => acc + item.preco * item.quantidade,
@@ -58,4 +58,4 @@ export function CarrinhoProvider({ children }) {
 
 export function useCarrinho() {
   return useContext(CarrinhoContext);
-}
+};

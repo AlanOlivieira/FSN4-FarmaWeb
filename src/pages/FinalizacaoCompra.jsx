@@ -1,44 +1,83 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaCheckCircle } from "react-icons/fa";
 import { useCarrinho } from "../contexts/CarrinhoContext";
+import { useAuth } from "../contexts/AuthContext";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function FinalizacaoCompra() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { limparCarrinho } = useCarrinho();
+  const { limparCarrinho, carrinho } = useCarrinho();
+  const { currentUser } = useAuth();
   const [pedido, setPedido] = useState(null);
+  const processado = useRef(false);
 
   useEffect(() => {
+    // Se já processamos o pedido, não faz nada
+    if (processado.current) return;
+
     const state = location.state;
 
+    // Verifica se há itens no carrinho através do state
     if (!state || !state.carrinho || state.carrinho.length === 0) {
-      navigate("/", { replace: true });
+      // Se não há itens no state, verifica se há no contexto
+      if (carrinho.length === 0) {
+        navigate("/", { replace: true });
+        return;
+      }
+      
+      // Se há itens no contexto mas não no state, usa o contexto
+      const numeroPedido = "FW" + Math.floor(100000 + Math.random() * 900000);
+      
+      const novoPedido = {
+        numero: numeroPedido,
+        itens: [...carrinho], // Faz uma cópia do array
+        total: carrinho.reduce((s, it) => s + it.preco * (it.quantidade || 1), 0),
+        pagamento: "Cartão de Crédito",
+        data: new Date().toISOString(),
+        usuarioId: currentUser?.id || 'anonimo'
+      };
+
+      setPedido(novoPedido);
+      localStorage.setItem("ultimoPedido", JSON.stringify(novoPedido));
+
+      if (currentUser) {
+        const pedidosExistentes = JSON.parse(localStorage.getItem('pedidosUsuario') || '[]');
+        localStorage.setItem('pedidosUsuario', JSON.stringify([...pedidosExistentes, novoPedido]));
+      }
+
+      processado.current = true;
+      limparCarrinho();
       return;
     }
 
+    // Processa normalmente com os dados do state
     const numeroPedido = "FW" + Math.floor(100000 + Math.random() * 900000);
 
     const novoPedido = {
       numero: numeroPedido,
-      itens: state.carrinho,
+      itens: [...state.carrinho], // Faz uma cópia do array
       total: typeof state.total === "number"
         ? state.total
         : state.carrinho.reduce((s, it) => s + it.preco * (it.quantidade || 1), 0),
       pagamento: "Cartão de Crédito",
-      data: new Date().toLocaleString(),
+      data: new Date().toISOString(),
+      usuarioId: currentUser?.id || 'anonimo'
     };
 
     setPedido(novoPedido);
     localStorage.setItem("ultimoPedido", JSON.stringify(novoPedido));
 
-
-    if (typeof limparCarrinho === "function") {
-      limparCarrinho();
+    if (currentUser) {
+      const pedidosExistentes = JSON.parse(localStorage.getItem('pedidosUsuario') || '[]');
+      localStorage.setItem('pedidosUsuario', JSON.stringify([...pedidosExistentes, novoPedido]));
     }
 
-  }, []); 
+    processado.current = true;
+    limparCarrinho();
+
+  }, [currentUser, location.state, navigate, carrinho, limparCarrinho]);
 
   if (!pedido) {
     return (
@@ -74,9 +113,9 @@ export default function FinalizacaoCompra() {
 
         <h5>Resumo do Pedido</h5>
         <div className="list-group mb-3">
-          {pedido.itens.map((item) => (
+          {pedido.itens.map((item, index) => (
             <div
-              key={item.id}
+              key={`${item.id}-${index}`} // Adiciona index para garantir chaves únicas
               className="list-group-item d-flex justify-content-between"
             >
               <div>
@@ -102,8 +141,8 @@ export default function FinalizacaoCompra() {
         </div>
 
         <div className="d-flex justify-content-center gap-3">
-          <Link to={`/meus-pedidos`} className="btn btn-primary btn-lg">
-            ACOMPANHAR PEDIDO
+          <Link to={`/Meus-Pedidos/`} className="btn btn-primary btn-lg">
+            VER MEUS PEDIDOS
           </Link>
           <Link to="/" className="btn btn-outline-secondary btn-lg">
             VOLTAR À LOJA
@@ -116,4 +155,4 @@ export default function FinalizacaoCompra() {
       </div>
     </div>
   );
-}
+};
