@@ -20,6 +20,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import PaginaDePesquisa from './pages/PaginaDePesquisa';
 import FinalizacaoCompra from './pages/FinalizacaoCompra';
 import MeusPedidos from './pages/MeusPedidos';
+import CadastroProduto from './pages/CadastrarProdutos';
 
 function Layout() {
   return (
@@ -55,9 +56,11 @@ function App() {
           <Route path="pesquisa" element={<PaginaDePesquisa />} />
           <Route path="finalizacao" element={<FinalizacaoCompra />} />
           <Route path="meus-pedidos" element={<MeusPedidos />} />
+          <Route path="/admin/produtos/" element={<CadastroProduto />} />
         </Route>
 
         <Route path="/produto/:id" element={<DetalheProduto />} />
+
       </Routes>
     </FavoritosProvider>
   );
