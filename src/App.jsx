@@ -25,6 +25,7 @@ import MeusPedidos from './pages/MeusPedidos';
 import MinhaConta from './pages/MinhaConta';
 import LoginRequired from './pages/LoginRequired';
 import ProtectedRoute from './components/ProtectedRoute';
+import CadastroProduto from './pages/CadastrarProdutos';
 
 function Layout() {
   return (
@@ -78,6 +79,7 @@ function App() {
                 } 
               />
               <Route path="login-required" element={<LoginRequired />} />
+              <Route path="/admin/produtos/" element={<CadastroProduto />} />
             </Route>
 
             <Route path="/produto/:id" element={<DetalheProduto />} />
