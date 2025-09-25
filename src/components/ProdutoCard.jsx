@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import { useCarrinho } from "../contexts/CarrinhoContext";
+import { useFavoritos } from "../contexts/FavoritosContext";
+import { FaHeart } from "react-icons/fa";
 import BotaoCarrinho from "./BotaoCarrinho";
-import BotaoFavorito from "./BotaoFavorito";
 
 export default function ProdutoCard({ produto }) {
   const { adicionarProduto } = useCarrinho();
+  const { favoritos, adicionarFavorito, removerFavorito } = useFavoritos();
+  const isFavorito = favoritos.some(fav => fav.id === produto.id);
 
   return (
     <div className="card h-100 w-100 shadow-sm position-relative">
@@ -23,7 +26,14 @@ export default function ProdutoCard({ produto }) {
         style={{ top: '10px', right: '10px', zIndex: 1, gap: '8px' }}
       >
         <BotaoCarrinho onClick={() => adicionarProduto(produto)} />
-        <BotaoFavorito produto={produto} />
+        <button
+          className="btn btn-link p-0"
+          onClick={() =>
+            isFavorito ? removerFavorito(produto.id) : adicionarFavorito(produto)
+          }
+        >
+          <FaHeart color={isFavorito ? "red" : "gray"} size={20} />
+        </button>
       </div>
 
       <div className="card-body d-flex flex-column">

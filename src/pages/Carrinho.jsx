@@ -10,7 +10,6 @@ export default function Carrinho() {
     diminuirQuantidade,
     removerProduto,
     total,
-    finalizarCarrinho,
   } = useCarrinho();
 
   const [hoverRemoverId, setHoverRemoverId] = useState(null);
@@ -18,13 +17,12 @@ export default function Carrinho() {
 
   const navigate = useNavigate();
 
-  const finalizarCompra = async () => {
+  const prosseguir = () => {
     if (itens.length === 0) {
       alert("Seu carrinho está vazio!");
       return;
     }
-    await finalizarCarrinho();
-    navigate("/finalizacao", { state: { itens, total } });
+    navigate("/enderecos", { state: { itens, total } });
   };
 
   if (itens.length === 0) {
@@ -50,7 +48,7 @@ export default function Carrinho() {
               <div className="row g-0">
                 <div className="col-md-3">
                   <img
-                    src={item.produto.imagem}
+                    src={item.produto.imagemPrincipal}
                     className="img-fluid rounded-start"
                     alt={item.produto.nome}
                     style={{ objectFit: "cover", height: "100%" }}
@@ -61,12 +59,17 @@ export default function Carrinho() {
                     <h5 className="card-title">{item.produto.nome}</h5>
                     <p className="card-text mb-1">
                       Preço unitário:{" "}
-                      <strong>R$ {item.preco_unitario.toFixed(2)}</strong>
+                      <strong>
+                        R$ {(item.produto.preco || 0).toFixed(2)}
+                      </strong>
                     </p>
                     <p className="card-text mb-1">
                       Subtotal:{" "}
                       <strong>
-                        R$ {(item.preco_unitario * item.quantidade).toFixed(2)}
+                        R${" "}
+                        {((item.produto.preco || 0) * item.quantidade).toFixed(
+                          2
+                        )}
                       </strong>
                     </p>
                     <div className="d-flex align-items-center mt-3">
@@ -84,7 +87,7 @@ export default function Carrinho() {
                           cursor: "pointer",
                           marginRight: "8px",
                         }}
-                        onClick={() => diminuirQuantidade(item.id)}
+                        onClick={() => diminuirQuantidade(item)}
                       >
                         -
                       </button>
@@ -161,7 +164,7 @@ export default function Carrinho() {
                     {item.produto.nome} x {item.quantidade}
                   </span>
                   <span>
-                    R$ {(item.preco_unitario * item.quantidade).toFixed(2)}
+                    R$ {((item.produto.preco || 0) * item.quantidade).toFixed(2)}
                   </span>
                 </div>
               ))}
@@ -171,7 +174,7 @@ export default function Carrinho() {
                 <strong>R$ {total.toFixed(2)}</strong>
               </div>
               <button
-                onClick={finalizarCompra}
+                onClick={prosseguir}
                 onMouseEnter={() => setHoverFinalizar(true)}
                 onMouseLeave={() => setHoverFinalizar(false)}
                 style={{
@@ -187,7 +190,7 @@ export default function Carrinho() {
                   transition: "all 0.3s ease",
                 }}
               >
-                Finalizar Compra
+                Prosseguir →
               </button>
             </div>
           </div>

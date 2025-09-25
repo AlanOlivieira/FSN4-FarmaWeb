@@ -14,7 +14,8 @@ export const CarrinhoProvider = ({ children }) => {
         const res = await api.get(`/carrinhos/usuario/${usuarioId}`);
         if (res.data.length > 0) {
           setCarrinho(res.data[0]);
-          setItens(res.data[0].itenscarrinho || []);
+          const itensOrdenados = [...(res.data[0].itenscarrinho || [])].sort((a, b) => a.id - b.id);
+          setItens(itensOrdenados);
         } else {
           const novoCarrinho = await api.post("/carrinhos", { usuario_id: usuarioId });
           setCarrinho(novoCarrinho.data);
@@ -50,9 +51,15 @@ export const CarrinhoProvider = ({ children }) => {
     }
   };
 
-  const diminuirQuantidade = async (itemId) => {
+  const diminuirQuantidade = async (item) => {
     try {
-      await api.put(`/itens-carrinho/${itemId}/diminuir`);
+      if (item.quantidade === 1) {
+        const confirmar = window.confirm("Deseja realmente remover este produto do carrinho?");
+        if (!confirmar) return;
+        await api.delete(`/itens-carrinho/${item.id}`);
+      } else {
+        await api.put(`/itens-carrinho/${item.id}/diminuir`);
+      }
       atualizarItens(carrinho.id);
     } catch (err) {
       console.error("Erro ao diminuir quantidade:", err);
@@ -85,7 +92,8 @@ export const CarrinhoProvider = ({ children }) => {
   const atualizarItens = async (carrinhoId) => {
     try {
       const res = await api.get(`/itens-carrinho/carrinho/${carrinhoId}`);
-      setItens(res.data);
+      const itensOrdenados = [...res.data].sort((a, b) => a.id - b.id);
+      setItens(itensOrdenados);
     } catch (err) {
       console.error("Erro ao atualizar itens:", err);
     }

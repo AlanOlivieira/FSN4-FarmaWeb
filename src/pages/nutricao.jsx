@@ -12,9 +12,7 @@ export default function Nutricao() {
   useEffect(() => {
     api.get("/produtos")
       .then((res) => {
-        const filtrados = res.data.filter(
-          (p) => p.categoria?.nome?.toLowerCase() === "nutrição"
-        );
+        const filtrados = res.data.filter((p) => p.categoria_id === 4);
         setProdutos(filtrados);
       })
       .catch((err) => console.error("Erro ao carregar produtos", err));

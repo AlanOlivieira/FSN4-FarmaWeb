@@ -1,37 +1,55 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState, useRef } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaCheckCircle } from "react-icons/fa";
 import { useCarrinho } from "../contexts/CarrinhoContext";
+import { useAuth } from "../contexts/AuthContext";
+import api from "../services/api";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function FinalizacaoCompra() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { itens, total, limparCarrinho } = useCarrinho();
+  const { currentUser } = useAuth();
   const [pedido, setPedido] = useState(null);
+  const processado = useRef(false);
 
   useEffect(() => {
-    if (!itens || itens.length === 0) {
-      navigate("/", { replace: true });
-      return;
-    }
+    const processarPedido = async () => {
+      if (processado.current) return;
 
-    const numeroPedido = "FW" + Math.floor(100000 + Math.random() * 900000);
+      const state = location.state;
 
-    const novoPedido = {
-      numero: numeroPedido,
-      itens,
-      total,
-      pagamento: "Cartão de Crédito",
-      data: new Date().toLocaleString(),
+      if ((!state || !state.itens || state.itens.length === 0) && (!itens || itens.length === 0)) {
+        navigate("/", { replace: true });
+        return;
+      }
+
+      const itensPedido = state?.itens?.length > 0 ? state.itens : itens;
+
+      const payload = {
+        usuario_id: currentUser?.id,
+        endereco_entrega_id: currentUser?.endereco_id,
+        forma_pagamento: "Cartão de Crédito",
+        itens: itensPedido.map((item) => ({
+          produto_id: item.produto?.id || item.id,
+          quantidade: item.quantidade,
+          preco_unitario: item.produto?.preco || item.preco,
+        })),
+      };
+
+      try {
+        const res = await api.post("/pedidos", payload);
+        setPedido(res.data);
+        limparCarrinho();
+        processado.current = true;
+      } catch (err) {
+        console.error("Erro ao salvar pedido:", err.response?.data || err.message);
+      }
     };
 
-    setPedido(novoPedido);
-    localStorage.setItem("ultimoPedido", JSON.stringify(novoPedido));
-
-    if (typeof limparCarrinho === "function") {
-      limparCarrinho();
-    }
-  }, [itens, total, limparCarrinho, navigate]);
+    processarPedido();
+  }, [location.state, itens, total, currentUser, limparCarrinho, navigate]);
 
   if (!pedido) {
     return (
@@ -62,18 +80,18 @@ export default function FinalizacaoCompra() {
         </div>
 
         <div className="alert alert-info text-center">
-          Número do Pedido: <strong>{pedido.numero}</strong>
+          Número do Pedido: <strong>{pedido.id}</strong>
         </div>
 
         <h5>Resumo do Pedido</h5>
         <div className="list-group mb-3">
-          {pedido.itens.map((item) => (
+          {pedido.itenspedido.map((item) => (
             <div
               key={item.id}
               className="list-group-item d-flex justify-content-between"
             >
               <div>
-                <div className="fw-bold">{item.produto.nome}</div>
+                <div className="fw-bold">{item.produto?.nome}</div>
                 <small className="text-muted">
                   R$ {item.preco_unitario.toFixed(2)}
                 </small>
@@ -90,7 +108,7 @@ export default function FinalizacaoCompra() {
 
         <div className="d-flex justify-content-between mb-3">
           <strong>Forma de Pagamento:</strong>
-          <span>{pedido.pagamento}</span>
+          <span>{pedido.forma_pagamento}</span>
         </div>
 
         <div className="d-flex justify-content-between mb-4">
@@ -99,8 +117,8 @@ export default function FinalizacaoCompra() {
         </div>
 
         <div className="d-flex justify-content-center gap-3">
-          <Link to={`/meus-pedidos`} className="btn btn-primary btn-lg">
-            ACOMPANHAR PEDIDO
+          <Link to={`/Meus-Pedidos/`} className="btn btn-primary btn-lg">
+            VER MEUS PEDIDOS
           </Link>
           <Link to="/" className="btn btn-outline-secondary btn-lg">
             VOLTAR À LOJA

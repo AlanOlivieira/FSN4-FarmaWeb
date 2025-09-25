@@ -9,17 +9,16 @@ export default function Bebes() {
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 10;
 
-
   useEffect(() => {
     api.get("/produtos")
       .then((res) => {
-        setProdutos(res.data);
+        const filtrados = res.data.filter((p) => p.categoria_id === 6);
+        setProdutos(filtrados);
       })
       .catch((err) => {
         console.error("Erro ao carregar produtos", err);
       });
   }, []);
-
 
   const offset = currentPage * itemsPerPage;
   const currentData = produtos.slice(offset, offset + itemsPerPage);

@@ -39,3 +39,20 @@
 .botao-carrinho-container {
   margin-left: 10px;
 }
+
+.botao-favorito {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.botao-favorito .icon {
+  font-size: 20px;
+  color: gray;
+  transition: color 0.2s ease;
+}
+
+.botao-favorito.favorito .icon {
+  color: red;
+}

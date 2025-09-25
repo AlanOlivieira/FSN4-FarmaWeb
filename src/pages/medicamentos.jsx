@@ -12,9 +12,7 @@ export default function Medicamentos() {
   useEffect(() => {
     api.get("/produtos")
       .then((res) => {
-        const filtrados = res.data.filter(
-          (p) => p.categoria?.nome?.toLowerCase() === "medicamentos"
-        );
+        const filtrados = res.data.filter((p) => p.categoria_id === 1);
         setProdutos(filtrados);
       })
       .catch((err) => console.error("Erro ao carregar produtos", err));
