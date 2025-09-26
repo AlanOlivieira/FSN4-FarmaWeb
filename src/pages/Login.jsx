@@ -10,7 +10,6 @@ function Login() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Se veio de uma redirecionamento, volta para a página anterior, senão vai para home
   const from = location.state?.from?.pathname || '/';
 
   const handleSubmit = async (e) => {

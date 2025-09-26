@@ -3,8 +3,8 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useCarrinho } from "../../contexts/CarrinhoContext";
 import { useAuth } from '../../contexts/AuthContext';
 import { FaSearch } from 'react-icons/fa';
-import ModalLogin from '../ModalLogin';
-import ModalRegistro from '../ModalRegistro';
+import ModalLogin from '../ModalLogin.jsx';
+import ModalRegistro from '../ModalRegistro.jsx';
 import './Header.css';
 
 export default function Header() {

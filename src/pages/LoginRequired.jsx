@@ -1,4 +1,3 @@
-// pages/LoginRequired.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ModalLogin from '../components/ModalLogin';

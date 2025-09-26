@@ -4,12 +4,10 @@ import { Link } from 'react-router-dom';
 import './Sobre.css';
 
 export default function Sobre() {
-  // Estados para a seção de valores
   const [activeValue, setActiveValue] = useState(null);
   
 
 
-  // Função para alternar cards de valores
   const toggleValueCard = (index) => {
     setActiveValue(activeValue === index ? null : index);
   };
@@ -18,17 +16,14 @@ export default function Sobre() {
 
   return (
     <div className="sobre-container">
-      {/* Imagem de fundo */}
       <div 
         className="fullscreen-background"
         role="img"
         aria-label="Fundo abstrato representando saúde e bem-estar"
       ></div>
 
-      {/* Conteúdo principal */}
       <div className="content-overlay">
         <Container className="py-5">
-          {/* Seção cabeçalho */}
           <Row className="mb-5 text-center">
             <Col>
               <h1 className="main-title">SOBRE NÓS</h1>
@@ -36,7 +31,6 @@ export default function Sobre() {
             </Col>
           </Row>
 
-          {/* Seção estatísticas */}
           <Row className="stats-section py-4 mb-5">
             {[
               { value: '10+', label: 'Anos no mercado' },
@@ -51,7 +45,6 @@ export default function Sobre() {
             ))}
           </Row>
 
-          {/* Seção história */}
           <Row className="mb-5 section-content">
             <Col md={6} className="mb-4 mb-md-0">
               <div className="image-wrapper">
@@ -73,7 +66,6 @@ export default function Sobre() {
             </Col>
           </Row>
 
-          {/* Seção time */}
           <Row className="mb-5 section-content">
             <Col className="text-center">
               <h2 className="section-header">Nosso Time</h2>
@@ -121,7 +113,6 @@ export default function Sobre() {
               </Col>
             ))}
           </Row>
-{/* Seção valores */}
 <Row className="section-content">
   <Col className="text-center">
     <h2 className="section-header">Nossos Valores</h2>
@@ -169,7 +160,6 @@ export default function Sobre() {
   </Col>
 </Row>
 
-          {/* Seção serviços */}
           <Row className="mb-5 section-content">
             <Col className="text-center">
               <h2 className="section-header">Nossos Serviços</h2>
@@ -220,7 +210,6 @@ export default function Sobre() {
             ))}
           </Row>
 
-          {/* Seção depoimentos */}
           <Row className="mb-5 section-content">
             <Col className="text-center">
               <h2 className="section-header">Depoimentos</h2>

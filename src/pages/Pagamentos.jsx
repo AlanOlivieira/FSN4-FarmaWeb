@@ -45,21 +45,19 @@ export default function Pagamentos() {
     if (!metodo) return alert("Selecione um método de pagamento");
 
     try {
-      // 1️⃣ Criar o pedido
       const pedido = await api.post("/pedidos", {
         status: "aguardando pagamento",
         total: 100,
         forma_pagamento: metodo,
         usuario_id: currentUser?.id,
-        endereco_entrega_id: 1, // TODO: trocar pelo endereço escolhido
+        endereco_entrega_id: 1,
         itens: [
-          { produto_id: 1, quantidade: 2, preco_unitario: 50 }, // TODO: pegar do carrinho real
+          { produto_id: 1, quantidade: 2, preco_unitario: 50 },
         ],
       });
 
       const pedidoId = pedido.data.id;
 
-      // 2️⃣ Criar o pagamento vinculado ao pedido
       await api.post("/pagamentos", {
         metodo,
         status: "pendente",

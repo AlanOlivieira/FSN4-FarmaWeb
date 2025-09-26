@@ -5,7 +5,6 @@ function Contato() {
   return (
     <div className="py-5">
       <Container>
-        {/* Seção principal de contato */}
         <Row className="mb-5">
           <Col>
             <h1 className="text-center mb-4">Entre em Contato Conosco</h1>
@@ -15,7 +14,6 @@ function Contato() {
           </Col>
         </Row>
 
-        {/* Seção CTA no final */}
         <Row className="mb-5 section-content bg-light p-5 rounded">
           <Col className="text-center">
             <h2 className="section-header">Pronto para cuidar da sua saúde?</h2>

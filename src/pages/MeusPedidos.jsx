@@ -3,7 +3,7 @@ import api from "../services/api";
 import { useAuth } from "../contexts/AuthContext";
 
 export default function MeusPedidos() {
-  const { currentUser } = useAuth(); // 🔹 Agora pega do contexto
+  const { currentUser } = useAuth(); 
   const [pedidos, setPedidos] = useState([]);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function MeusPedidos() {
 
   const cancelarPedido = async (pedidoId) => {
     try {
-      await api.put(`/pedidos/${pedidoId}/cancelar`); // 🔹 Nova rota
+      await api.put(`/pedidos/${pedidoId}/cancelar`);
       setPedidos((prev) =>
         prev.map((p) =>
           p.id === pedidoId ? { ...p, status: "cancelado" } : p

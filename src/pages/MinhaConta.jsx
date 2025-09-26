@@ -19,7 +19,6 @@ function MinhaConta() {
     cpf: currentUser?.cpf || ''
   });
 
-  // Dados de perguntas frequentes
   const [faqs] = useState([
     {
       pergunta: "Como faço para rastrear meu pedido?",
@@ -47,16 +46,13 @@ function MinhaConta() {
     }
   ]);
 
-  // Estado para a pergunta selecionada no FAQ
   const [activeQuestion, setActiveQuestion] = useState(null);
 
   useEffect(() => {
-    // Carregar pedidos do localStorage
     const pedidosSalvos = localStorage.getItem('pedidosUsuario');
     if (pedidosSalvos) {
       try {
         const pedidosData = JSON.parse(pedidosSalvos);
-        // Filtrar pedidos apenas do usuário atual
         const usuarioPedidos = pedidosData.filter(pedido => 
           pedido.usuarioId === currentUser.id
         );
@@ -88,7 +84,6 @@ function MinhaConta() {
     setEditMode(false);
   };
 
-  // Função para simular status de entrega (em um sistema real, viria da API)
   const getStatusEntrega = (dataPedido) => {
     const data = new Date(dataPedido);
     const hoje = new Date();
@@ -101,7 +96,6 @@ function MinhaConta() {
     return { status: "Entregue", texto: "Seu pedido foi entregue com sucesso.", icone: "bi bi-check-circle" };
   };
 
-  // Função para gerar código de rastreio fictício
   const gerarCodigoRastreio = (numeroPedido) => {
     return "FW" + numeroPedido.substring(2) + "BR";
   };

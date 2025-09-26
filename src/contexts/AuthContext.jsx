@@ -1,65 +1,108 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import api from "../services/api";
+import api, { setAuthToken } from "../services/api";
 
 const AuthContext = createContext();
 
+export function useAuth() {
+  return useContext(AuthContext);
+}
+
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
+  const [accessToken, setAccessTokenState] = useState(null);
+  const [refreshToken, setRefreshTokenState] = useState(null);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
-    const savedUser = localStorage.getItem("user");
-    const savedToken = localStorage.getItem("accessToken");
+    const storedUser = localStorage.getItem("user");
+    const storedAccess = localStorage.getItem("accessToken");
+    const storedRefresh = localStorage.getItem("refreshToken");
 
-    if (savedUser && savedToken) {
-      setCurrentUser(JSON.parse(savedUser));
-      api.defaults.headers.common["Authorization"] = `Bearer ${savedToken}`;
+    if (storedUser && storedAccess && storedRefresh) {
+      setCurrentUser(JSON.parse(storedUser));
+      setAccessTokenState(storedAccess);
+      setRefreshTokenState(storedRefresh);
+      setAuthToken(storedAccess);
     }
     setLoading(false);
   }, []);
 
-  const login = ({ accessToken, refreshToken, user }) => {
-    localStorage.setItem("accessToken", accessToken);
-    localStorage.setItem("refreshToken", refreshToken);
-    localStorage.setItem("user", JSON.stringify(user));
+  const register = async (userData) => {
+    try {
+      const res = await api.post("/auth/cadastro-cliente", userData);
+      const { accessToken, refreshToken, user } = res.data;
 
-    api.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
-    setCurrentUser(user);
+      setCurrentUser(user);
+      setAccessTokenState(accessToken);
+      setRefreshTokenState(refreshToken);
 
-    if (user.role === "admin") navigate("/admin/vendas");
-    else if (user.role === "vendedor") navigate("/admin/produtos");
-    else navigate("/");
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
+
+      setAuthToken(accessToken);
+
+      return user;
+    } catch (err) {
+      throw new Error(err.response?.data?.error || "Erro no cadastro");
+    }
+  };
+
+  const login = async (email, password, role="admin") => {
+    try {
+      const res = await api.post("../auth/login", {
+        email,
+        password,
+        role,
+      });
+      const { accessToken, refreshToken, user } = res.data;
+
+      setCurrentUser(user);
+      setAccessTokenState(accessToken);
+      setRefreshTokenState(refreshToken);
+
+      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("accessToken", accessToken);
+      localStorage.setItem("refreshToken", refreshToken);
+
+      setAuthToken(accessToken);
+
+      return user;
+    } catch (err) {
+      throw new Error(err.response?.data?.error || "Email ou senha inválidos");
+    }
   };
 
   const logout = async () => {
     try {
-      if (currentUser) {
-        await api.post("/auth/logout", {
-          userId: currentUser.id,
-          role: currentUser.role,
-        });
-      }
+      await api.post("/auth/logout");
     } catch (err) {
-      console.error("Erro ao deslogar:", err.response?.data || err.message);
+      console.error("Erro no logout:", err);
     } finally {
+      setCurrentUser(null);
+      setAccessTokenState(null);
+      setRefreshTokenState(null);
+
+      localStorage.removeItem("user");
       localStorage.removeItem("accessToken");
       localStorage.removeItem("refreshToken");
-      localStorage.removeItem("user");
-      delete api.defaults.headers.common["Authorization"];
-      setCurrentUser(null);
-      navigate("/");
+
+      setAuthToken(null);
     }
   };
 
+  const value = {
+    currentUser,
+    accessToken,
+    refreshToken,
+    register,
+    login,
+    logout,
+  };
+
   return (
-    <AuthContext.Provider value={{ currentUser, login, logout, loading }}>
+    <AuthContext.Provider value={value}>
       {!loading && children}
     </AuthContext.Provider>
   );
-}
-
-export function useAuth() {
-  return useContext(AuthContext);
 }
